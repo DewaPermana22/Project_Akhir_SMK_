@@ -1,0 +1,47 @@
+.logo-industri {
+  overflow: hidden;
+  width: 100%;
+  padding: 50px 0;
+  position: relative;
+}
+.logo-wrapp {
+  display: flex;
+  justify-content: space-evenly;
+}
+.logo-wrapp img {
+  max-width: 170px;
+  height: auto;
+  filter: grayscale(100%);
+  object-fit: contain;
+  transition: filter ease-in-out 0.3s;
+  margin: 0 30px;
+}
+.logo-wrapp img:nth-child(4),
+.logo-wrapp img:first-child {
+  max-width: 90px;
+}
+.logo-wrapp img:hover {
+  filter: grayscale(0%);
+}
+.container-kerjasama h4{
+    text-align: center;
+}
+@media (max-width: 768px) {
+  .container-kerjasama h4 {
+    font-size: 12px;
+  }
+  .logo-wrapp img {
+    max-width: 90px;
+    margin: 0 10px;
+  }
+  .logo-wrapp img:nth-child(4),
+  .logo-wrapp img:first-child {
+    max-width: 50px;
+  }
+}
+@media (max-width: 1024px) {
+  .logo-wrapp {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+}

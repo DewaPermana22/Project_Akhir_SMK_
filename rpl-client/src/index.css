@@ -1,0 +1,88 @@
+:root {
+  --size: 35px;
+  --line: 1px;
+  --black: #000000;
+  --dark-navy: #0a0f14;
+  --dark-gray: #181818;
+  --indigo-dark: #181227;
+  --deep-purple: #211838;
+  --purple: #322949;
+  --olive-brown: #494129;
+  --brick-red: #692c27;
+  --green: #169027;
+  --violet: #514276;
+  --steel-blue: #425b76;
+  
+  --sky-blue: #75b5fa;
+  --light-blue: #78b9ff;
+  --salmon: #f59f91;
+  --salmon-light: #f59f92;
+  --soft-yellow: #ffe195;
+  --lavender: #c9adfb;
+  --lavender-light: #c9adfc;
+  --gray-1: #272727;
+  --gray-2: #333333;
+  --gray-3: #b6b6b6;
+  --lavender-pale: #cfb8ff;
+  --gray-4: #dddddd;
+  --peach: #f5cec9;
+  --off-white: #e9e6f0;
+  --lavender-bg: #eee6ff;
+  --gray-5: #f3f3f3;
+  --gray-6: #f7f7f7;
+  --gray-7: #f6f5fa;
+  --white: #ffffff;
+}
+
+@font-face {
+  font-family: "eudoxsussans-regular";
+  src: url("/fonts/Eudoxus/EudoxusSans-Regular-BF659b6cb1d4714.ttf");
+}
+@font-face {
+  font-family: "eudoxsussans-medium";
+  src: url("/fonts/Eudoxus/EudoxusSans-Medium-BF659b6cb1c14cb.ttf");
+}
+@font-face {
+  font-family: "eudoxsussans-bold";
+  src: url("/fonts/Eudoxus/EudoxusSans-Bold-BF659b6cb1408e5.ttf");
+}
+@font-face {
+  font-family: "eudoxsussans-Xtrabold";
+  src: url("/fonts/Eudoxus/EudoxusSans-ExtraBold-BF659b6cb1b96c9.ttf");
+}
+@font-face {
+  font-family: "author-medium";
+  src: url("/fonts/Author/Author-Medium.ttf");
+}
+@font-face {
+  font-family: "author-bold";
+  src: url("/fonts/Author/Author-Bold.ttf");
+}
+
+html{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  -webkit-font-smoothing: antialiased; /* Chrome, Safari */
+  -moz-osx-font-smoothing: grayscale;  /* Firefox di Mac */
+}
+
+*{
+  scrollbar-width: none;
+}
+@import "tailwindcss";
+@theme{
+  --default-font-family : "eudoxsussans-medium", sans-serif;
+  --text-white : "#fff";
+  --lavender : "#c9adfb";
+  --purple : "#322949";
+  --violet : "#514276";
+  --lavender-bg : "#eee6ff";
+  --lime: #c9fa75;
+  --font-eudo-bold : "eudoxsussans-bold", sans-serif;
+  --font-author-bold : "author-bold", sans-serif;
+  --font-author-medium : "author-medium", sans-serif;
+  --indigo-dark : "#181227";
+}
