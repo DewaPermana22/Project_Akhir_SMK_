@@ -38,7 +38,7 @@ export const getMyBerita = async (
     });
 
     const res = await axiosInstance.get(`/news/my-news?${params}`);
-    return res.data;
+    return res.data.message;
   } catch (error) {
     console.error("error mengambil berita saya", error.response?.data);
     throw error;
@@ -54,3 +54,25 @@ export const deleteBerita = async (id) => {
     throw error;
   }
 };
+
+export const updateBerita = async (id, data) => {
+  try {
+    const res = axiosInstance.post(`/news/edit/${id}`, data,{
+      headers :{
+         "Content-Type": "multipart/form-data",
+      }
+    });
+    return res.data;
+  } catch (error) {
+    console.error(error)
+  }
+};
+
+export const getBeritaById = async (id) => {
+  try {
+    const res = await axiosInstance.get(`/news/detail/${id}`);
+    return res.data.message;
+  } catch (error) {
+    console.error(error)
+  }
+}

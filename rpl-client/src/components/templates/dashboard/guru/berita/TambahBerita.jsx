@@ -1,9 +1,12 @@
 import { ArrowBigLeftDash, Loader2Icon, Plug, UploadIcon } from "lucide-react";
-import { Link } from "react-router";
+import { Link, useParams } from "react-router";
 import BodyUploadBerita from "../../../../moleculs/BodyUploadBerita";
 import { useRef, useState } from "react";
+import toast, { Toaster } from 'react-hot-toast';
 
 const TambahBerita = () => {
+  const showToast = () => toast.success('Berita berhasil diunggah!');
+  const {id} = useParams();
   const formRef = useRef();
   const [formState, setFormState] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -15,7 +18,7 @@ const TambahBerita = () => {
         const success = await formRef.current.submitForm();
 
         if (success) {
-          alert("Berita berhasil diunggah!");
+          showToast();
           formRef.current.resetForm();
         } else {
           alert("Mohon lengkapi form dengan benar");
@@ -40,11 +43,10 @@ const TambahBerita = () => {
       <div className="flex-col flex lg:space-y-0 space-y-5 lg:flex-row items-center justify-between">
         <div>
           <h1 className="text-[var(--deep-purple)] text-xl font-eudo-bold">
-            Unggah Berita Baru
+            {id ? "Edit Berita" : "Unggah Berita Baru"}
           </h1>
           <p className="text-[var(--violet)] text-xs lg:text-sm">
-            Mulai bagikan informasi terbaru dengan menambahkan berita baru di
-            sini.
+            {id ? "Ubah informasi berita dengan mengedit berita ini." : "Mulai bagikan informasi terbaru dengan menambahkan berita baru disini."}
           </p>
         </div>
 
@@ -64,7 +66,7 @@ const TambahBerita = () => {
             ) : (
               <UploadIcon size={20} />
             )}
-            {isSubmitting ? "mengunggah..." : "Unggah"}
+            {isSubmitting ? "Menyimpan..." : "Simpan"}
           </button>
           <Link
             to={-1}
@@ -77,6 +79,7 @@ const TambahBerita = () => {
       <main className="overflow-y-scroll h-[calc(100vh-170px)]">
         <BodyUploadBerita onFormChange={setFormState} ref={formRef} />
       </main>
+      <Toaster/>
     </div>
   );
 };

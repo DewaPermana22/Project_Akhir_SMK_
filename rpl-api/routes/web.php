@@ -25,7 +25,7 @@ Route::prefix('api')->group(function () {
         Route::get('/news/all', [BeritaController::class, 'GetSemuaBerita']);
         Route::get('/news/my-news', [BeritaController::class, 'GetMyBerita']);
         Route::get('/news/detail/{news_id}', [BeritaController::class, 'GetDetailBerita']);
-        Route::put('/news/edit/{news_id}', [BeritaController::class, 'PutBerita']);
+        Route::post('/news/edit/{news_id}', [BeritaController::class, 'updateBerita']);
         Route::delete('/news/delete/{news_id}', [BeritaController::class, 'DeleteBerita']);
     });
 });

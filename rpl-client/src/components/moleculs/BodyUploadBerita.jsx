@@ -2,13 +2,21 @@ import { useState, useEffect } from "react";
 import InputData from "../atoms/InputData";
 import SelectDropdown from "../atoms/SelectDropdown";
 import { X, ImageUpIcon } from "lucide-react";
-import { getKategoriBerita, uploadBerita } from "../../api/services/BeritaService";
+import {
+  getBeritaById,
+  getKategoriBerita,
+  updateBerita,
+  uploadBerita,
+} from "../../api/services/BeritaService";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { forwardRef } from "react";
 import { useImperativeHandle } from "react";
+import { useParams } from "react-router";
 
 const BodyUploadBerita = forwardRef(({ onFormChange }, ref) => {
+  const { id } = useParams();
+  const [editing, setEditing] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
   const [isDragActive, setIsDragActive] = useState(false);
   const [kategoriBerita, setKategoriBerita] = useState([]);
@@ -22,13 +30,27 @@ const BodyUploadBerita = forwardRef(({ onFormChange }, ref) => {
         if (response && response.data) {
           setKategoriBerita(response.data);
         }
+
+        if (id) {
+          setEditing(true);
+          const resBerita = await getBeritaById(id);
+          if (resBerita && resBerita.data) {
+            const dataBerita = resBerita.data;
+            formik.setFieldValue("judul", dataBerita.judul);
+            formik.setFieldValue("kategori_id", dataBerita.kategori_id);
+            formik.setFieldValue("isi", dataBerita.isi);
+            if (dataBerita.gambar && dataBerita.gambar_url) {
+              setImagePreview(dataBerita.gambar_url);
+            }
+          }
+        }
       } catch (error) {
         console.error("Error fetching kategori berita:", error);
       }
     };
 
     fetchKategoriBerita();
-  }, []);
+  }, [id, editing]);
 
   const formik = useFormik({
     initialValues: {
@@ -55,9 +77,19 @@ const BodyUploadBerita = forwardRef(({ onFormChange }, ref) => {
         if (selectedFile) {
           formData.append("gambar", selectedFile);
         }
-        await uploadBerita(formData);
+        if (editing) {
+          for (let [key, value] of formData.entries()) {
+            console.log(key, value);
+          }
+          await updateBerita(id, formData);
+        } else {
+          for (let [key, value] of formData.entries()) {
+            console.log(key, value);
+          }
+          await uploadBerita(formData);
+        }
       } catch (error) {
-        console.error("Error Upload Berita", error); 
+        console.error("Error Upload Berita", error);
       }
     },
   });
@@ -159,7 +191,10 @@ const BodyUploadBerita = forwardRef(({ onFormChange }, ref) => {
   return (
     <div className="space-y-3 mt-5">
       <div className="space-y-2">
-        <label htmlFor="gambar" className="block text-sm font-medium text-gray-700">
+        <label
+          htmlFor="gambar"
+          className="block text-sm font-medium text-gray-700"
+        >
           Gambar Berita
         </label>
         <div

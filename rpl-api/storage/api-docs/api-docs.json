@@ -440,12 +440,12 @@
             }
         },
         "/api/news/edit/{news_id}": {
-            "put": {
+            "post": {
                 "tags": [
                     "Berita"
                 ],
                 "summary": "Update berita",
-                "operationId": "8cf915901c91dd7e20d9d5f12c49760f",
+                "operationId": "e3d206ad33df7cf0e1d1588d73c7f452",
                 "parameters": [
                     {
                         "name": "news_id",

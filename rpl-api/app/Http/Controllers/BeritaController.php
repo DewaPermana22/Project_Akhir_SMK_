@@ -244,7 +244,7 @@ class BeritaController extends Controller
     }
 
     /**
-     * @OA\Put(
+     * @OA\Post(
      *     path="/api/news/edit/{news_id}",
      *     summary="Update berita",
      *     tags={"Berita"},
@@ -295,32 +295,30 @@ class BeritaController extends Controller
      * )
      */
 
-    public function PutBerita(Request $request, $id)
+    public function updateBerita(Request $request, $id)
     {
         $request->validate([
-            'judul' => 'sometimes|required|string|max:255',
-            'kategori_id' => 'sometimes|required|exists:kategori_berita,id',
-            'isi' => 'sometimes|required|string|',
-            'gambar' => 'somtimes|image|mimes:jpeg,png,jpg,gif|max:5120',
+            'judul' => 'required|string|max:255',
+            'kategori_id' => 'required|exists:kategori_berita,id',
+            'isi' => 'required|string',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
         ]);
 
         try {
             $berita = ModelBerita::find($id);
 
             if (!$berita) {
-                return response()->json([
+                return Controller::json([
                     'success' => false,
                     'message' => 'Berita tidak ditemukan'
                 ], 404);
             }
 
             if ($request->hasFile('gambar')) {
-                // Hapus Gambar Lama
                 if ($berita->gambar) {
                     Storage::delete('public/berita/' . $berita->gambar);
                 }
 
-                // Upload gambar baru
                 $file = $request->file('gambar');
                 $filename = time() . '_' . Str::random(10) . '.' . $file->getClientOriginalExtension();
                 $file->storeAs('public/berita', $filename);
@@ -328,31 +326,33 @@ class BeritaController extends Controller
                 $berita->gambar = $filename;
             }
 
-            $berita->judul = $request->judul ?? $berita->judul;
-            $berita->kategori_id = $request->kategori_id ?? $berita->kategori_id;
-            $berita->isi = $request->isi ?? $berita->isi;
-
-            if ($request->has('judul')) {
-                $berita->slug = Str::slug($request->judul) . '-' . Str::random(6);
-            }
+            $berita->judul = $request->judul;
+            $berita->kategori_id = $request->kategori_id;
+            $berita->isi = $request->isi;
+            $berita->slug = Str::slug($request->judul) . '-' . Str::random(6);
 
             $berita->save();
 
-            $berita->gambar_url = asset('storage/berita/' . $berita->gambar);
+            $berita->refresh();
+
+            if ($berita->gambar) {
+                $berita->gambar_url = asset('storage/berita/' . $berita->gambar);
+            }
 
             return Controller::json([
                 'success' => true,
                 'message' => 'Berita berhasil diupdate',
                 'data' => $berita
-            ]);
+            ], 200);
         } catch (\Exception $e) {
             return Controller::json([
                 'success' => false,
-                'message' => 'Gagal mengupdate berita',
-                'error' => $e->getMessage()
+                'message' => 'Gagal mengupdate berita: ' . $e->getMessage()
             ], 500);
         }
     }
+
+
 
     /**
      * @OA\Delete(
@@ -411,7 +411,6 @@ class BeritaController extends Controller
                 Storage::delete('public/berita/' . $berita->gambar);
             }
 
-            // Hapus dari database
             $berita->delete();
 
             return Controller::json([
@@ -494,18 +493,16 @@ class BeritaController extends Controller
             $user = Auth::user();
 
             if (!$user) {
-                return response()->json([
+                return Controller::json([
                     'success' => false,
                     'message' => 'User tidak terautentikasi'
                 ], 401);
             }
 
-            // Pagination Parameter
             $perPage = $request->get('per_page', 5);
             $page = $request->get('page', 1);
             $search = $request->get('search', '');
 
-            // Validasi pagination parameter
             $perPage = max(1, min(50, $perPage)); // Maksimal 1-50
             $page = max(1, $page);
 
@@ -513,13 +510,13 @@ class BeritaController extends Controller
                 ->where('user_id', $user->id);
 
             if (!empty($search)) {
-            $query->where(function ($q) use ($search) {
-                $q->whereRaw('LOWER(judul) LIKE ?', ['%' . strtolower($search) . '%'])
-                    ->orWhereHas('kategori', function ($q) use ($search) {
-                        $q->whereRaw('LOWER(kategori) LIKE ?', ['%' . strtolower($search) . '%']);
-                    });
-            });
-        }
+                $query->where(function ($q) use ($search) {
+                    $q->whereRaw('LOWER(judul) LIKE ?', ['%' . strtolower($search) . '%'])
+                        ->orWhereHas('kategori', function ($q) use ($search) {
+                            $q->whereRaw('LOWER(kategori) LIKE ?', ['%' . strtolower($search) . '%']);
+                        });
+                });
+            }
 
             $berita = $query
                 ->orderBy('created_at', 'desc')
@@ -529,6 +526,7 @@ class BeritaController extends Controller
                 return [
                     'id' => $item->id,
                     'judul' => $item->judul,
+                    'slug' => $item->slug,
                     'kategori' => $item->kategori->kategori ?? 'Tidak ada kategori',
                     'created_at' => $item->created_at->toISOString(),
                     'updated_at' => $item->updated_at->toISOString(),
@@ -537,14 +535,14 @@ class BeritaController extends Controller
                 ];
             });
 
-            return response()->json([
+            return Controller::json([
                 'success' => true,
                 'data' => $formattedData,
                 'search_term' => $search
             ]);
         } catch (\Throwable $th) {
             Log::error('Error getMyBerita: ' . $th->getMessage());
-            return response()->json([
+            return Controller::json([
                 'success' => false,
                 'message' => 'Gagal mengambil berita',
                 'error' => $th->getMessage()

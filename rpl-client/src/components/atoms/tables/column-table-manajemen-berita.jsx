@@ -1,7 +1,7 @@
 import { PencilLine } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { openModalConfirmDelete } from "../../../features/modals/ConfirmDeleteModal";
-import { deleteBerita } from "../../../api/services/BeritaService";
+import { Link } from "react-router";
 
 export const ColumnTableManajemenBerita = (options = {}) => {
   const dispatch = useDispatch();
@@ -69,12 +69,13 @@ export const ColumnTableManajemenBerita = (options = {}) => {
       cellClassName: "text-center",
       render: (row) => (
         <div className="flex gap-2 justify-center items-center">
-          <button
+          <Link
+          to={`update/${row.id}`}
             className="inline-flex cursor-pointer items-center px-3 py-1 text-xs font-medium text-blue-600 bg-blue-50 border border-blue-200 rounded-md hover:bg-blue-100 hover:border-blue-300 transition-colors duration-200"
             title="Edit berita"
           >
             Edit
-          </button>
+          </Link>
           <button
             className="inline-flex cursor-pointer items-center px-3 py-1 text-xs font-medium text-red-600 bg-red-50 border border-red-200 rounded-md hover:bg-red-100 hover:border-red-300 transition-colors duration-200"
             title="Hapus berita"

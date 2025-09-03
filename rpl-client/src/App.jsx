@@ -60,6 +60,7 @@ function App() {
               <Route path="berita" element={<LayoutBerita />}>
                 <Route index element={<ManajemenBerita />} />
                 <Route path="tambah" element={<TambahBerita />} />
+                <Route path="update/:id" element={<TambahBerita />} />
               </Route>
             </Route>
 
