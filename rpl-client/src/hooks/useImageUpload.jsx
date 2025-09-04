@@ -1,33 +1,28 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-export const useFileUpload = (initialPreview = null) => {
+export default function useImageUpload({ onFileSelect }) {
+  const [imagePreview, setImagePreview] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
-  const [imagePreview, setImagePreview] = useState(initialPreview);
   const [isDragActive, setIsDragActive] = useState(false);
 
   const handleFileUpload = (file) => {
     if (file && file.type.startsWith("image/")) {
-      //  file (max 5MB)
-      if (file.size > 5 * 1024 * 1024) {
-        throw new Error("Ukuran file terlalu besar. Maksimal 5MB");
-      }
-      
       setSelectedFile(file);
 
+      // kasih preview
       const reader = new FileReader();
-      reader.onload = (e) => {
-        setImagePreview(e.target.result);
-      };
+      reader.onload = (e) => setImagePreview(e.target.result);
       reader.readAsDataURL(file);
-      
-      return file;
+
+      if (onFileSelect) {
+        onFileSelect(file);
+      }
     }
-    return null;
   };
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    return handleFileUpload(file);
+    handleFileUpload(file);
   };
 
   const handleDragEnter = (e) => {
@@ -54,33 +49,28 @@ export const useFileUpload = (initialPreview = null) => {
 
     const files = e.dataTransfer.files;
     if (files.length > 0) {
-      return handleFileUpload(files[0]);
+      handleFileUpload(files[0]);
     }
-    return null;
   };
 
   const removeImage = () => {
     setSelectedFile(null);
     setImagePreview(null);
-  };
-
-  const resetFile = () => {
-    setSelectedFile(null);
-    setImagePreview(initialPreview);
+    if (onFileSelect) {
+      onFileSelect(null);
+    }
   };
 
   return {
-    selectedFile,
     imagePreview,
+    selectedFile,
     isDragActive,
-    handleFileUpload,
+    setImagePreview,
     handleFileChange,
     handleDragEnter,
     handleDragLeave,
     handleDragOver,
     handleDrop,
     removeImage,
-    resetFile,
-    setImagePreview
   };
-};
+}

@@ -1,9 +1,9 @@
-import { PencilLine } from "lucide-react";
+import { GlobeIcon, PencilLine } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { openModalConfirmDelete } from "../../../features/modals/ConfirmDeleteModal";
 import { Link } from "react-router";
 
-export const ColumnTableManajemenBerita = (options = {}) => {
+export const ColumnTableManajemenBerita = (options = {}, loading) => {
   const dispatch = useDispatch();
   return [
     {
@@ -14,14 +14,14 @@ export const ColumnTableManajemenBerita = (options = {}) => {
       minWidth: "300px",
       render: (row, rowIndex) => (
         <div className="flex items-center w-full">
-          <div className="flex-shrink-0 h-10 w-10 bg-[var(--lime)] rounded-lg flex items-center justify-center">
-            <PencilLine size={20} className="text-[var(--indigo-dark)]" />
+          <div className="flex-shrink-0 p-2 shadow bg-[var(--lime)] rounded-md flex items-center justify-center">
+            <GlobeIcon size={20} className="text-[var(--indigo-dark)]" />
           </div>
           <div className="ml-4 min-w-0 flex-1">
-            <div className="text-sm font-bold text-[var(--violet)] truncate">
+            <div className="text-sm font-bold text-[var(--indigo-dark)] truncate">
               {row.judul}
             </div>
-            <div className="text-xs text-gray-500 truncate">
+            <div className="text-xs text-gray-400 truncate">
               Oleh: {row.author || row.judul}
             </div>
           </div>
@@ -71,13 +71,13 @@ export const ColumnTableManajemenBerita = (options = {}) => {
         <div className="flex gap-2 justify-center items-center">
           <Link
           to={`update/${row.id}`}
-            className="inline-flex cursor-pointer items-center px-3 py-1 text-xs font-medium text-blue-600 bg-blue-50 border border-blue-200 rounded-md hover:bg-blue-100 hover:border-blue-300 transition-colors duration-200"
+            className="inline-flex cursor-pointer items-center px-4 py-1 text-xs font-medium text-white  bg-[var(--blue)] rounded-md hover:bg-blue-500 shadow transition-colors duration-200"
             title="Edit berita"
           >
             Edit
           </Link>
           <button
-            className="inline-flex cursor-pointer items-center px-3 py-1 text-xs font-medium text-red-600 bg-red-50 border border-red-200 rounded-md hover:bg-red-100 hover:border-red-300 transition-colors duration-200"
+            className="inline-flex cursor-pointer items-center px-3 py-1 text-xs font-medium text-white bg-[var(--red)] rounded-md hover:bg-red-500 shadow transition-colors duration-200"
             title="Hapus berita"
             onClick={() =>
               dispatch(

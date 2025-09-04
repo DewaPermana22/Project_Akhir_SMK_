@@ -72,7 +72,7 @@ const ManajemenBerita = () => {
           </Link>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 max-w-fit items-start sm:items-center">
+        <div className="flex w-full flex-col sm:flex-row gap-4 max-w-2xl items-start sm:items-center">
           <SearchInput
             value={searchTerm}
             onChange={(e) => handleSearchChange(e.target.value)}
@@ -92,7 +92,7 @@ const ManajemenBerita = () => {
             selectedValue={pagination.perPage}
             onSelect={handlePerPageSelect}
             placeholder="Items per page"
-            size="w-40 cursor-pointer"
+            size="max-w-[150px]"
           />
 
           <button
@@ -105,18 +105,11 @@ const ManajemenBerita = () => {
           </button>
         </div>
 
-        <div className="h-[calc(100vh-250px)] rounded-xl border border-gray-200 overflow-hidden">
-          {loading ? (
-            <div className="flex items-center justify-center h-full">
-              <Loader2Icon
-                size={24}
-                className="animate-spin text-[var(--indigo-dark)]"
-              />
-            </div>
-          ) : (
-            <>
-              <div className="overflow-x-auto">
+        <div className="w-full rounded-lg shadow-md overflow-hidden">
+          
+              <div className="overflow-x-auto max-h-[calc(100vh-307px)]">
                 <Table
+                  loading={loading}
                   data={berita}
                   columns={ManajemenBeritaCols}
                   emptyMessage={<EmptyStateTable />}
@@ -124,18 +117,18 @@ const ManajemenBerita = () => {
               </div>
 
               {berita.length > 0 && (
-                <div className="flex justify-between items-center p-4 border-t border-gray-200">
-                  <div className="text-sm text-[var(--indigo-dark)]">
+                <div className="flex justify-between items-center p-4 border-t bg-[var(--indigo-dark)] border-gray-300">
+                  <div className="text-sm text-white">
                     Menampilkan {berita.length} dari {pagination.total} berita
                   </div>
 
-                  <div className="flex gap-2">
+                  <div className="flex gap-4">
                     <button
                       onClick={() =>
                         handlePageChange(pagination.currentPage - 1)
                       }
                       disabled={pagination.currentPage === 1}
-                      className="px-3 py-2 bg-[var(--lime)] shadow rounded disabled:bg-gray-300 text-sm"
+                      className="p-1 bg-[var(--lime)] shadow rounded-lg disabled:bg-neutral-400 text-sm"
                     >
                       <ChevronLeftIcon size={20} />
                     </button>
@@ -149,10 +142,10 @@ const ManajemenBerita = () => {
                             <button
                               key={page}
                               onClick={() => handlePageChange(page)}
-                              className={`px-4 py-1 border rounded text-sm ${
+                              className={`px-3 py-1  text-white rounded text-sm ${
                                 pagination.currentPage === page
-                                  ? "bg-[var(--indigo-dark)] text-white"
-                                  : "hover:bg-gray-100"
+                                  ? "bg-[var(--lime)] !text-[var(--indigo-dark)]"
+                                  : "hover:bg-[var(--lime)]/30"
                               }`}
                             >
                               {page}
@@ -171,15 +164,15 @@ const ManajemenBerita = () => {
                         handlePageChange(pagination.currentPage + 1)
                       }
                       disabled={pagination.currentPage === pagination.lastPage}
-                      className="px-3 py-2 bg-[var(--lime)] shadow rounded disabled:bg-gray-300 text-sm"
+                      className="p-1  bg-[var(--lime)] shadow rounded-lg disabled:bg-neutral-400 text-sm"
                     >
                       <ChevronRightIcon size={20} />
                     </button>
                   </div>
                 </div>
               )}
-            </>
-          )}
+           
+        
         </div>
       </div>
 

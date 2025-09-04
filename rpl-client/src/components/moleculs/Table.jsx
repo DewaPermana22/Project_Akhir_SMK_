@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronUp, ChevronDown, ChevronsUpDown, Loader2 } from 'lucide-react';
-
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 const Table = ({ 
   columns = [], 
   data = [], 
@@ -58,12 +59,12 @@ const Table = ({
 
   if (loading) {
     return (
-      <div className={`bg-white rounded-lg shadow-sm border border-gray-200 overflow-scroll ${className}`}>
+      <div className={`bg-gray-50 rounded-lg shadow-sm border border-gray-200 overflow-scroll ${className}`}>
         <div className="animate-pulse">
-          <div className="bg-gray-200 h-12"></div>
+          <Skeleton borderRadius={0}  baseColor='#d1d5db' className="h-12" />
           {[1, 2, 3, 4, 5].map((row) => (
             <div key={row} className="border-b border-gray-200">
-              <div className="bg-white h-16"></div>
+              <Skeleton borderRadius={0} baseColor='#d1d5db' className="h-16" />
             </div>
           ))}
         </div>
@@ -72,17 +73,17 @@ const Table = ({
   }
 
   return (
-    <div className={`bg-white rounded-lg overflow-hidden shadow-sm border border-gray-200 ${className}`}>
+    <div className={`overflow-hidden shadow-md ${className}`}>
       <div className="overflow-x-auto">
-        <table className={`w-full table-fixed divide-y divide-gray-200 ${compact ? 'text-sm' : ''}`}>
-          <thead className="bg-gray-50">
+        <table className={`w-full shadow-md relative table-fixed divide-y divide-[var(--indigo-dark)] ${compact ? 'text-sm' : ''}`}>
+          <thead className="bg-[var(--indigo-dark)]">
             <tr>
               {columns.map((column, index) => (
                 <th
                   key={index}
                   scope="col"
                   className={`
-                    px-6 py-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider
+                    px-6 py-4 text-center text-xs font-medium text-white uppercase tracking-wider
                     ${sortable ? 'cursor-pointer hover:bg-gray-100' : ''}
                     ${column.headerClassName || ''}
                   `}
@@ -102,7 +103,7 @@ const Table = ({
               ))}
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-gray-100 divide-y divide-gray-300">
             {sortedData.length > 0 ? (
               sortedData.map((row, rowIndex) => (
                 <tr
