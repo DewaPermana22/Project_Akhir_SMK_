@@ -1,5 +1,4 @@
-import axios from "axios";
-import { axiosInstance } from "../axiosInstance";
+import { axiosInstance } from "../AxiosInstance";
 
 export const getKategoriBerita = async () => {
   try {
@@ -72,6 +71,15 @@ export const getBeritaById = async (id) => {
   try {
     const res = await axiosInstance.get(`/news/detail/${id}`);
     return res.data.message;
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export const getBeritaTerbaru = async () => {
+  try {
+    const res = await axiosInstance.get("/news/latest");
+    return res.data;
   } catch (error) {
     console.error(error)
   }

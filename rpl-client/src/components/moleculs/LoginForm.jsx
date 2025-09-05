@@ -6,9 +6,10 @@ import {
   AiOutlineEyeInvisible,
   AiOutlineLoading,
 } from "react-icons/ai";
-import { login } from "../../api/services/LoginService";
 import { useDispatch } from "react-redux";
-import { closeModal } from "../../features/modals/ModalSlice";
+import toast from "react-hot-toast";
+import { login } from "@/api/services/LoginService";
+import { closeModal } from "@/features/modals/ModalSlice";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -27,14 +28,12 @@ const LoginForm = () => {
         setLoading(true);
         await login(values);
         dispatch(closeModal());
-        // dispatch(startLoading());
-        // navigate("/dashboard");
+        toast.success("Login berhasil!");
       } catch (error) {
         console.error("Login error:", error.response?.data || error.message);
-        alert(error.response?.data?.message || "Login gagal");
+        toast.error("Login gagal!, Silahkan Coba Lagi.");
       } finally{
         setLoading(false);
-        // dispatch(stopLoading());
       }
     },
   });

@@ -1,13 +1,13 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
-import {persistReducer, persistStore} from 'redux-persist';
-import modalSlice from '../features/modals/ModalSlice';
-import userSlice from '../features/UserSlice';
-import menuSlice from '../features/ActiveMenu';
-import LoadingSlice from '../features/LoadingSlice';
-import SidebarSlice from '../features/SidebarSlice';
-import ModalConfirmSlice from '../features/modals/ConfirmModalSlice';
-import ModalConfirmdeleteSlice from '../features/modals/ConfirmDeleteModal';
+import {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE} from 'redux-persist';
+import modalSlice from '@/features/modals/ModalSlice';
+import userSlice from '@/features/UserSlice';
+import menuSlice from '@/features/ActiveMenu';
+import LoadingSlice from '@/features/LoadingSlice';
+import SidebarSlice from '@/features/SidebarSlice';
+import modalConfirmLogoutSlice from '@/features/modals/ConfirmLogoutModalSlice';
+import ModalConfirmdeleteSlice from '@/features/modals/ConfirmDeleteModal';
 
 const persist = {
   key : "config",
@@ -22,12 +22,18 @@ const rootReducer = combineReducers({
   loading : LoadingSlice,
   menu : menuSlice,
   sidebar : SidebarSlice,
-  modal_confirm : ModalConfirmSlice,
+  modal_confirm_logout : modalConfirmLogoutSlice,
   modal_confirm_delete : ModalConfirmdeleteSlice
 });
 
 export const store = configureStore({
-  reducer: persistReducer(persist, rootReducer)
+  reducer: persistReducer(persist, rootReducer),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
 
 export const persistor = persistStore(store);

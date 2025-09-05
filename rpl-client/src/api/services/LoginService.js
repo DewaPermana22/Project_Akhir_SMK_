@@ -8,6 +8,7 @@ export const login = async (credentials) => {
   try {
     const res = await axios.get("/sanctum/csrf-cookie");
     const response = await axios.post("/api/login", credentials);
+    console.log("Login Response : ", response)
     return response.data;
   } catch (error) {
     console.error("Login error:", error.response?.data);
@@ -18,6 +19,7 @@ export const login = async (credentials) => {
 export const getUserAuth = async () => {
   try {
     const response = await axios.get("/api/user");
+    console.log("User Response : ", response)
     return response.data;
   } catch (error) {
     return { authenticated: false };

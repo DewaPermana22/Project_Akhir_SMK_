@@ -1,16 +1,12 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { clearUser } from "../../features/UserSlice";
-import { closeModalConfirm } from "../../features/modals/ConfirmModalSlice";
-import { startLoading, stopLoading } from "../../features/LoadingSlice";
-import { logout } from "../../api/services/LoginService";
-import { useNavigate } from "react-router-dom";
-
-const ConfirmationModal = () => {
+import { useLogout } from "@/hooks/useLogout";
+import { closeModalConfirmLogout } from "@/features/modals/ConfirmLogoutModalSlice";
+const LogoutConfirmationModal = () => {
   const stateModal = useSelector(
-    (state) => state.modal_confirm.openConfirmModal
+    (state) => state.modal_confirm_logout.openConfirmLogoutModal
   );
-  const navigate = useNavigate();
+  const { handleLogout } = useLogout();
   const dispatch = useDispatch();
   const [isVisible, setIsVisible] = useState(false);
   const [shouldRender, setShouldRender] = useState(false);
@@ -35,23 +31,7 @@ const ConfirmationModal = () => {
   }, [stateModal]);
 
   const handleClose = () => {
-    dispatch(closeModalConfirm());
-  };
-
-  const handleConfirm = async () => {
-    try {
-      dispatch(startLoading());
-      const response = await logout();
-      alert(response.message);
-      dispatch(clearUser());
-      dispatch(closeModalConfirm());
-      navigate("/");
-    } catch (error) {
-      console.error(error);
-      throw error;
-    } finally {
-      dispatch(stopLoading());
-    }
+    dispatch(closeModalConfirmLogout());
   };
 
   const handleModalClick = (e) => {
@@ -91,7 +71,7 @@ const ConfirmationModal = () => {
           </div>
           <div className="flex gap-2  justify-center w-full mt-5">
             <button
-              onClick={handleConfirm}
+              onClick={() => handleLogout()}
               className="bg-green-500 p-2 w-[100px] cursor-pointer hover:bg-green-600 transition-colors ease-linear duration-200 rounded-sm text-sm text-white"
             >
               Iya
@@ -109,4 +89,4 @@ const ConfirmationModal = () => {
   );
 };
 
-export default ConfirmationModal;
+export default LogoutConfirmationModal;

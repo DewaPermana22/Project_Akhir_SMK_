@@ -1,10 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import MenuSidebar from "../atoms/MenuSidebar";
+import MenuSidebar from '../atoms/MenuSidebar';
 import * as LucideIcons from "lucide-react";
-import { openModalConfirm } from "../../features/modals/ConfirmModalSlice";
-import { toggleSection } from "../../features/ActiveMenu";
-import ConfirmationModal from "./ConfirmationModal";
+import { toggleSection } from '@/features/ActiveMenu';
+import { openModalConfirmLogout } from "@/features/modals/ConfirmLogoutModalSlice";
+import LogoutConfirmationModal from "./modal&alert/LogoutConfirmationModal";
 
 const Sidebar = ({ isOpen, onClose, onMenuClick }) => {
   const dispatch = useDispatch();
@@ -118,7 +118,7 @@ const Sidebar = ({ isOpen, onClose, onMenuClick }) => {
               <LucideIcons.CircleUserRound size={20} /> Profile
             </li>
             <li
-              onClick={() => dispatch(openModalConfirm())}
+              onClick={() => dispatch(openModalConfirmLogout())}
               className="text-red-500 flex gap-3 cursor-pointer hover:bg-red-500/10 p-3 rounded-md transition-colors duration-200"
             >
               <LucideIcons.DoorOpen size={20} />
@@ -128,7 +128,7 @@ const Sidebar = ({ isOpen, onClose, onMenuClick }) => {
         </div>
       </aside>
 
-      <ConfirmationModal />
+      <LogoutConfirmationModal />
     </>
   );
 };

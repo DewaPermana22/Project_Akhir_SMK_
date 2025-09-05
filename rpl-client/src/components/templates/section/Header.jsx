@@ -1,6 +1,7 @@
-import Navbar from '../../moleculs/Navbar'
+import Navbar from '@/components/moleculs/Navbar'
 import HeroSection from './HeroSection'
 import SectionKerjaSama from './SectionKerjaSama'
+
 
 const Header = () => {
   return (

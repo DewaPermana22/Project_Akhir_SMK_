@@ -8,28 +8,24 @@ import { openModal } from "../../features/modals/ModalSlice";
 import { getUserAuth } from "../../api/services/LoginService";
 import { useNavigate } from "react-router";
 import { setUser } from "../../features/UserSlice";
-import { getRoleName, getStatus } from "../../app/utils/get-name";
 import { startLoading, stopLoading } from "../../features/LoadingSlice";
 import { setRole } from "../../features/ActiveMenu";
+import toast from "react-hot-toast";
+import { navigationPath } from "@/app/navigation";
+import { getRoleName, getStatus } from "@/app/utils/get-name";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
-  const navigationPath = [
-    { name: "Beranda", link: "index.html" },
-    { name: "Pendidik", link: "tentang.html" },
-    { name: "Berita", link: "kontak.html" },
-    { name: "Alumni", link: "login.html" },
-    { name: "Kesiswaan", link: "login.html" },
-    { name: "PPDB", link: "login.html" },
-  ];
-
-   const dispatch = useDispatch();
-   const ClickButton = async () => {
-     try {
-       dispatch(startLoading())
-       const res = await getUserAuth();
-       if (res.authenticated) {
+  const dispatch = useDispatch();
+  
+  const ClickButton = async () => {
+    try {
+      toast.promise(getUserAuth(), {
+        loading: "Sedang memuat data pengguna...",
+        success: (res) => {
+          if (res.authenticated) {
+            toast.success("Berhasil memuat data pengguna!");
         dispatch(
           setUser({
             name: res.user.name,
@@ -39,18 +35,20 @@ const Navbar = () => {
           })
         );
 
-        dispatch(setRole(getRoleName(res.user.role_id)));
-
-        navigate(`/dashboard/${getRoleName(res.user.role_id).trim().toLocaleLowerCase()}`);
-        
+        const roleName = getRoleName(res.user.role_id);
+        dispatch(setRole(roleName));
+        navigate(`/dashboard/${roleName.trim().toLowerCase()}`);
       } else {
+        toast.error("Sesi pengguna telah habis!, Silahkan Login kembali.");
         dispatch(openModal());
       }
+        },
+        error: (err) => err.message || "Terjadi kesalahan saat memuat...",
+      });
+
     } catch (err) {
       console.error(err);
-    } finally {
-      dispatch(stopLoading());
-    }
+    } 
   };
 
   return (
@@ -76,7 +74,10 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        <button onClick={ClickButton} className="text-sm hidden xl:block lg:text-lg font-medium bg-[var(--lime)] p-2.5 lg:py-2.5 lg:px-6 cursor-pointer transition-all duration-300 ease-in-out rounded-[10px] text-[var(--indigo-dark)] hover:bg-[var(--lavender)]">
+        <button
+          onClick={ClickButton}
+          className="text-sm hidden xl:block lg:text-lg font-medium bg-[var(--lime)] p-2.5 lg:py-2.5 lg:px-6 cursor-pointer transition-all duration-300 ease-in-out rounded-[10px] text-[var(--indigo-dark)] hover:bg-[var(--lavender)]"
+        >
           Login Ke Aplikasi RPL
         </button>
         <div className="xl:hidden flex items-center">
@@ -117,7 +118,7 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <ModalAuthentication/>
+      <ModalAuthentication />
     </>
   );
 };
