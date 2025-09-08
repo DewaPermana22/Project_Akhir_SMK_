@@ -8,11 +8,12 @@ import LoadingSlice from '@/features/LoadingSlice';
 import SidebarSlice from '@/features/SidebarSlice';
 import modalConfirmLogoutSlice from '@/features/modals/ConfirmLogoutModalSlice';
 import ModalConfirmdeleteSlice from '@/features/modals/ConfirmDeleteModal';
+import PopUpKameraSlice from '@/features/modals/PopUpKameraSlice';
 
 const persist = {
   key : "config",
   storage,
-  blacklist: ['loading', 'modal_auth', 'sidebar', 'modal_confirm', 'modal_confirm_delete'],
+  blacklist: ['loading', 'modal_auth', 'sidebar', 'modal_confirm', 'modal_confirm_delete','popupKamera'],
   whitelist: ['user', 'menu']
 }
 
@@ -23,7 +24,8 @@ const rootReducer = combineReducers({
   menu : menuSlice,
   sidebar : SidebarSlice,
   modal_confirm_logout : modalConfirmLogoutSlice,
-  modal_confirm_delete : ModalConfirmdeleteSlice
+  modal_confirm_delete : ModalConfirmdeleteSlice,
+  popupKamera : PopUpKameraSlice
 });
 
 export const store = configureStore({

@@ -1,4 +1,4 @@
-import "../../style/card-berita.css";
+import "@/style/card-berita.css";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const CardBerita = ({props}) => {

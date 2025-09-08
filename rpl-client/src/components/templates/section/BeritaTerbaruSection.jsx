@@ -1,6 +1,6 @@
 import '../../../style/berita-section.css';
 import { FaArrowRightLong } from "react-icons/fa6";
-import CardBerita from "../../atoms/CardBerita";
+import CardBerita from "../../atoms/card/CardBerita";
 
 const BeritaTerbaruSection = () => {
   const dataBerita = [

@@ -20,7 +20,7 @@ const UserDashboard = () => {
     },
     {
       id: "absensi",
-      title: "Rekap Absensi",
+      title: "Absensi Siswa",
       icon: "UserCheck",
       content: "Konten Rekap Absensi",
     },
@@ -56,7 +56,7 @@ const UserDashboard = () => {
       import("../../templates/quickaccess/jadwal-pelajaran")
     ),
     absensi: React.lazy(() =>
-      import("../../templates/quickaccess/rekap-absensi-siswa")
+      import("../quickaccess/absensi-siswa")
     ),
     jurnal: React.lazy(() =>
       import("../../templates/quickaccess/jurnal-kelas")

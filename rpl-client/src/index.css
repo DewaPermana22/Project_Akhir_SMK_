@@ -1,3 +1,4 @@
+
 :root {
   --size: 35px;
   --line: 1px;
@@ -107,7 +108,7 @@ body {
   scrollbar-width: none;
 }
 @import "tailwindcss";
-@import "tw-animate-css";
+
 
 @custom-variant dark (&:is(.dark *));
 @theme{

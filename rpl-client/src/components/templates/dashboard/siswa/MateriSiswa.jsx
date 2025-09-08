@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import CardMateri from '../../../atoms/CardMateri';
+import CardMateri from '../../../atoms/card/CardMateri';
 import SearchInput from '../../../atoms/SearchInput';
 import SelectDropdown from '../../../atoms/SelectDropdown';
 

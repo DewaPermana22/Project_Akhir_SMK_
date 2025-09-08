@@ -1,5 +1,5 @@
 import "../../../style/alumni-section.css";
-import CardAlumni from "../../atoms/CardAlumni";
+import CardAlumni from "../../atoms/card/CardAlumni";
 
 const AlumniSection = () => {
   const dataAlumni = [
