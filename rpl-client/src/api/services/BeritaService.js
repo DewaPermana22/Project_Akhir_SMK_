@@ -79,7 +79,7 @@ export const getBeritaById = async (id) => {
 export const getBeritaTerbaru = async () => {
   try {
     const res = await axiosInstance.get("/news/latest");
-    return res.data;
+    return res.data.message;
   } catch (error) {
     console.error(error)
   }

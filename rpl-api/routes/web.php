@@ -3,6 +3,7 @@
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\KategoriBeritaController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -27,5 +28,7 @@ Route::prefix('api')->group(function () {
         Route::get('/news/detail/{news_id}', [BeritaController::class, 'GetDetailBerita']);
         Route::post('/news/edit/{news_id}', [BeritaController::class, 'updateBerita']);
         Route::delete('/news/delete/{news_id}', [BeritaController::class, 'DeleteBerita']);
+        
+        Route::get('/users/detail/{user_id}', [UsersController::class, 'getUserById']);
     });
 });

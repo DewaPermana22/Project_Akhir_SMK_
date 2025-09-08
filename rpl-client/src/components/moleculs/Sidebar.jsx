@@ -5,6 +5,7 @@ import * as LucideIcons from "lucide-react";
 import { toggleSection } from '@/features/ActiveMenu';
 import { openModalConfirmLogout } from "@/features/modals/ConfirmLogoutModalSlice";
 import LogoutConfirmationModal from "./modal&alert/LogoutConfirmationModal";
+import { Link } from "react-router";
 
 const Sidebar = ({ isOpen, onClose, onMenuClick }) => {
   const dispatch = useDispatch();
@@ -114,9 +115,9 @@ const Sidebar = ({ isOpen, onClose, onMenuClick }) => {
 
           {/* Footer */}
           <ul className="flex bg-[var(--indigo-dark)] right-0 left-0 fixed bottom-0 flex-col flex-shrink-0">
-            <li className="text-white flex gap-3 cursor-pointer hover:bg-[var(--indigo-light)] p-3 rounded-md transition-colors duration-200">
+            <Link to="profile" className="text-white flex gap-3 cursor-pointer hover:bg-[var(--indigo-light)] p-3 rounded-md transition-colors duration-200">
               <LucideIcons.CircleUserRound size={20} /> Profile
-            </li>
+            </Link>
             <li
               onClick={() => dispatch(openModalConfirmLogout())}
               className="text-red-500 flex gap-3 cursor-pointer hover:bg-red-500/10 p-3 rounded-md transition-colors duration-200"

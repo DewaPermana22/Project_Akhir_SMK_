@@ -3,12 +3,11 @@ import { MdClose } from "react-icons/md";
 import { IoMenu } from "react-icons/io5";
 import Link from "../atoms/Link";
 import ModalAuthentication from "../moleculs/ModalAuthentication";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { openModal } from "../../features/modals/ModalSlice";
 import { getUserAuth } from "../../api/services/LoginService";
 import { useNavigate } from "react-router";
 import { setUser } from "../../features/UserSlice";
-import { startLoading, stopLoading } from "../../features/LoadingSlice";
 import { setRole } from "../../features/ActiveMenu";
 import toast from "react-hot-toast";
 import { navigationPath } from "@/app/navigation";
@@ -18,7 +17,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
-  
+  const isAuth = useSelector((state) => state.user);
   const ClickButton = async () => {
     try {
       toast.promise(getUserAuth(), {
@@ -78,7 +77,7 @@ const Navbar = () => {
           onClick={ClickButton}
           className="text-sm hidden xl:block lg:text-lg font-medium bg-[var(--lime)] p-2.5 lg:py-2.5 lg:px-6 cursor-pointer transition-all duration-300 ease-in-out rounded-[10px] text-[var(--indigo-dark)] hover:bg-[var(--lavender)]"
         >
-          Login Ke Aplikasi RPL
+          {isAuth ? "Masuk ke Dashboard" : "Login Ke Aplikasi RPL"}
         </button>
         <div className="xl:hidden flex items-center">
           {open ? (
@@ -112,7 +111,7 @@ const Navbar = () => {
               className="max-w-sm text-center text-sm font-medium bg-[var(--lime)] p-2.5 rounded-[10px] text-[var(--indigo-dark)] hover:bg-[var(--lavender)]"
               onClick={ClickButton}
             >
-              Login Ke Aplikasi RPL
+              {isAuth ? "Masuk ke Dashboard" : "Login Ke Aplikasi RPL"}
             </button>
           </li>
         </ul>

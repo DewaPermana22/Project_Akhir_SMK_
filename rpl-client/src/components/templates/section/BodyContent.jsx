@@ -1,7 +1,7 @@
 import AboutSection from './AboutSection'
 import PendidikSection from './PendidikSection'
-import BeritaTerbaruSection from './BeritaTerbaruSection'
 import AlumniSection from './AlumniSection'
+import BeritaTerbaruSection from './BeritaTerbaruSection'
 
 const BodyContent = () => {
   return (
