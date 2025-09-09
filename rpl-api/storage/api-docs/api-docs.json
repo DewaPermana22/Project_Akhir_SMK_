@@ -997,6 +997,76 @@
                 ]
             }
         },
+        "/like-post": {
+            "post": {
+                "tags": [
+                    "News Like"
+                ],
+                "summary": "Like atau Unlike berita",
+                "description": "Endpoint ini digunakan untuk memberikan like pada berita atau menghapus like jika sebelumnya sudah dilike. Like ini tidak butuh login, hanya menggunakan token unik per device.",
+                "operationId": "toggleLike",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "news_id",
+                                    "token_berita"
+                                ],
+                                "properties": {
+                                    "news_id": {
+                                        "description": "ID berita",
+                                        "type": "integer",
+                                        "example": 12
+                                    },
+                                    "token_berita": {
+                                        "description": "Token unik yang merepresentasikan device/user anonim",
+                                        "type": "string",
+                                        "example": "abc123xyz"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Like/unlike berhasil",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "News liked successfully."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Request tidak valid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "You have already liked this news."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/ping": {
             "get": {
                 "tags": [
@@ -1149,6 +1219,10 @@
         {
             "name": "KategoriBerita",
             "description": "KategoriBerita"
+        },
+        {
+            "name": "News Like",
+            "description": "News Like"
         },
         {
             "name": "PingPong",

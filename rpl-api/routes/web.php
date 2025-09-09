@@ -3,6 +3,7 @@
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\KategoriBeritaController;
+use App\Http\Controllers\LikeBeritaController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,9 @@ Route::prefix('api')->group(function () {
         Route::get('/kategori-berita', [KategoriBeritaController::class, 'GetKategoriBerita']);
         Route::put('/kategori-berita/{kategoriBerita}', [KategoriBeritaController::class, 'update']);
         Route::delete('/kategori-berita/{kategoriBerita}', [KategoriBeritaController::class, 'DeleteKategoriBerita']);
+
+        Route::post('/like-post/{news_id}', [LikeBeritaController::class, 'toggleLike']);
+        Route::post('/news/{id}/has-liked', [LikeBeritaController::class, 'hasLiked']);
 
         Route::post('/news', [BeritaController::class, 'PostBerita']);
         Route::get('/news/latest', [BeritaController::class, 'GetBeritaTerbaru']);

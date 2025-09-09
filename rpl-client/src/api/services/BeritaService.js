@@ -84,3 +84,27 @@ export const getBeritaTerbaru = async () => {
     console.error(error)
   }
 }
+
+export const hasLikedBerita = async (news_id, token_berita) => {
+  try {
+    const res = await axiosInstance.post(`/news/${news_id}/has-liked`, {
+      like_token: token_berita
+    });
+    return res.data;
+  } catch (error) {
+    console.error("Error checking like status:", error.response?.data);
+    throw error;
+  }
+}
+
+export const likeBerita = async (news_id, token_berita) => {
+  try {
+    const res = await axiosInstance.post(`/like-post/${news_id}`, {
+      like_token: token_berita
+    });
+    return res.data;
+  } catch (error) {
+    console.error("Error liking berita:", error.response?.data);
+    throw error;
+  }
+}

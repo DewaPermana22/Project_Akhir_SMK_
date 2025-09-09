@@ -7,7 +7,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 const BeritaTerbaruSection = () => {
   const { newsLatest, loading } = useBerita();
-  console.log(newsLatest);
   return (
     <section class="berita-terbaru">
       <div class="wrapp-berita-dan-tombol">
