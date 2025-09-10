@@ -3,10 +3,10 @@ import '../../../style/KerjaSama.css';
 
 const SectionKerjaSama = () => {
   return (
-    <div class="container-kerjasama">
+    <div className="container-kerjasama">
       <h4>KERJASAMA INDUSTRI</h4>
-      <div class="logo-industri">
-        <div class="logo-wrapp">
+      <div className="logo-industri">
+        <div className="logo-wrapp">
           <img
             src="/images/hummatech.png"
             alt="logo-hummatech"

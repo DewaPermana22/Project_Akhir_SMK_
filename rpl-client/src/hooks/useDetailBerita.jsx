@@ -1,53 +1,30 @@
-import { getBeritaById, hasLikedBerita, likeBerita } from '@/api/services/BeritaService';
-import React, { useEffect, useState } from 'react'
+import { getBeritaById } from "@/api/services/BeritaService";
+import { useEffect, useState } from "react";
 
 const useDetailBerita = (idBerita) => {
-    const [loading, setLoading] = useState(false);
-    const [liked, setLiked] = useState(false);
-    const [detailBerita, setDetailBerita] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [detailBerita, setDetailBerita] = useState({});
 
-    const fetchDetailBerita = async () => {
-        setLoading(true);
-        try {
-            const beritaId = Number(idBerita);
-            const response = await getBeritaById(beritaId);
-            if (response) {
-                setDetailBerita(response.data);
-            }
-        } catch (error) {
-            console.error("Error fetching berita detail:", error);
-        } finally {
-            setLoading(false);
-        }
-    }
-
-    const LikeBerita = async (idBerita, token_berita) => {
-        try {
-            await likeBerita(idBerita, token_berita);
-            setLiked(!liked);
-            fetchDetailBerita();
-        } catch (error) {
-            console.error("Error liking berita detail:", error);
-        }
-    }
-
-    const checkLiked = async (token_berita) => {
+  const fetchDetailBerita = async () => {
+    setLoading(true);
     try {
       const beritaId = Number(idBerita);
-      const response = await hasLikedBerita(beritaId, token_berita);
+      const response = await getBeritaById(beritaId);
       if (response) {
-        setLiked(response.data);
+        setDetailBerita(response.data);
       }
     } catch (error) {
-      console.error("Error checking like:", error);
+      console.error("Error fetching berita detail:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
-    useEffect(() => {
-        fetchDetailBerita();
-    }, [idBerita])
-    
-  return {detailBerita, loading, LikeBerita, liked, checkLiked}
-}
+  useEffect(() => {
+    fetchDetailBerita();
+  }, [idBerita]);
 
-export default useDetailBerita
+  return { detailBerita, loading };
+};
+
+export default useDetailBerita;

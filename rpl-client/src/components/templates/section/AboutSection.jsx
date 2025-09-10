@@ -9,11 +9,11 @@ const AboutSection = () => {
       .then((data) => setAnimationData(data));
   }, []);
   return (
-    <section class="about">
-      <div class="container-computer">
+    <section id="about" className="about">
+      <div className="container-computer">
         <Lottie animationData={animationData} loop={true} autoplay={true} />
       </div>
-      <div class="right-content-about">
+      <div className="right-content-about">
         <h1>Tentang Jurusan RPL SMKN 8 JEMBER</h1>
         <p>
           Di SMKN 8, jurusan Rekayasa Perangkat Lunak (RPL) membekali siswa
@@ -23,10 +23,10 @@ const AboutSection = () => {
           dipersiapkan menjadi profesional yang siap menghadapi tantangan di era
           digital.
         </p>
-        <ul class="list-point-about">
+        <ul className="list-point-about">
           <li>
             <img src="/svg/trophy.svg" alt="" />
-            <span class="point-about">
+            <span className="point-about">
               <b>Berorientasi Inovasi:</b>
               <span>
                 Membentuk siswa agar mampu menciptakan aplikasi modern sesuai
@@ -36,7 +36,7 @@ const AboutSection = () => {
           </li>
           <li>
             <img src="/svg/brain-circuit.svg" alt="" />
-            <span class="point-about">
+            <span className="point-about">
               <b>Berorientasi Inovasi:</b>
               <span>
                 Membentuk siswa agar mampu menciptakan aplikasi modern sesuai
@@ -46,7 +46,7 @@ const AboutSection = () => {
           </li>
           <li>
             <img src="/svg/briefcase-business.svg" alt="" />
-            <span class="point-about">
+            <span className="point-about">
               <b>Berorientasi Inovasi:</b>
               <span>
                 Membentuk siswa agar mampu menciptakan aplikasi modern sesuai

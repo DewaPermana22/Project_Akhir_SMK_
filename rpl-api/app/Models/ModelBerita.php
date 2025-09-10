@@ -37,9 +37,4 @@ class ModelBerita extends Model
     {
         return asset('storage/berita' . $this->gambar);
     }
-
-    public function likes()
-    {
-        return $this->hasMany(NewsLikeModel::class, 'news_id');
-    }
 }

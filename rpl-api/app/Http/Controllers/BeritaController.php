@@ -141,7 +141,7 @@ class BeritaController extends Controller
         }
 
         $berita->gambar_url = asset('storage/berita/' . $berita->gambar);
-        $berita->jumlah_like = $berita->likes()->count();
+        $berita->increment('views');
         return Controller::json([
             'success' => true,
             'data' => $berita

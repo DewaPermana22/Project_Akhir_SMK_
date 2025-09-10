@@ -22,9 +22,6 @@ Route::prefix('api')->group(function () {
         Route::put('/kategori-berita/{kategoriBerita}', [KategoriBeritaController::class, 'update']);
         Route::delete('/kategori-berita/{kategoriBerita}', [KategoriBeritaController::class, 'DeleteKategoriBerita']);
 
-        Route::post('/like-post/{news_id}', [LikeBeritaController::class, 'toggleLike']);
-        Route::post('/news/{id}/has-liked', [LikeBeritaController::class, 'hasLiked']);
-
         Route::post('/news', [BeritaController::class, 'PostBerita']);
         Route::get('/news/latest', [BeritaController::class, 'GetBeritaTerbaru']);
         Route::get('/news/all', [BeritaController::class, 'GetSemuaBerita']);

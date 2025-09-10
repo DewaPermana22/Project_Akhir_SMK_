@@ -8,15 +8,15 @@ import { Skeleton } from "@/components/ui/skeleton";
 const BeritaTerbaruSection = () => {
   const { newsLatest, loading } = useBerita();
   return (
-    <section class="berita-terbaru">
-      <div class="wrapp-berita-dan-tombol">
+    <section id="news-latest" className="berita-terbaru">
+      <div className="wrapp-berita-dan-tombol">
         <h1>Berita Terbaru</h1>
-        <Link to="/news" class="tombol-berita">
+        <Link to="/news" className="tombol-berita">
           Lihat Semua Berita{" "}
           <FaArrowRightLong className="hidden xl:block xl:w-5 xl:h-5" />
         </Link>
       </div>
-      <div class="grid-berita">
+      <div className="grid-berita">
         {loading
           ? Array.from({ length: 8 }).map((_, index) => (
               <Skeleton

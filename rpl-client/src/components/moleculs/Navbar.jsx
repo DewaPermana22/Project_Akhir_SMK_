@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
 import { IoMenu } from "react-icons/io5";
-import Link from "../atoms/Link";
+import { HashLink } from "react-router-hash-link";
 import ModalAuthentication from "../moleculs/ModalAuthentication";
 import { useDispatch, useSelector } from "react-redux";
 import { openModal } from "../../features/modals/ModalSlice";
@@ -69,7 +69,7 @@ const Navbar = () => {
         <ul className="hidden xl:flex list-none gap-5 items-center">
           {navigationPath.map((item, index) => (
             <li key={index}>
-              <Link href={item.link} name={item.name} />
+              <HashLink className="font-bold text-[18px]" smooth to={item.link}>{item.name}</HashLink>
             </li>
           ))}
         </ul>
@@ -103,7 +103,7 @@ const Navbar = () => {
         <ul className="flex flex-col text-center gap-6 p-6 mt-28 text-[var(--white)]">
           {navigationPath.map((item, index) => (
             <li key={index}>
-              <Link href={item.link} name={item.name} />
+              <HashLink className="font-bold text-[18px]" smooth to={item.link}>{item.name}</HashLink>
             </li>
           ))}
           <li>
