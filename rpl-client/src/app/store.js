@@ -13,8 +13,8 @@ import PopUpKameraSlice from '@/features/modals/PopUpKameraSlice';
 const persist = {
   key : "config",
   storage,
-  blacklist: ['loading', 'modal_auth', 'sidebar', 'modal_confirm', 'modal_confirm_delete','popupKamera'],
-  whitelist: ['user', 'menu']
+  blacklist: ['loading', 'modal_auth', 'modal_confirm', 'modal_confirm_delete','popupKamera'],
+  whitelist: ['user', 'menu', 'sidebar']
 }
 
 const rootReducer = combineReducers({

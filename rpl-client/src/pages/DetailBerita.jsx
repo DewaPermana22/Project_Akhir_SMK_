@@ -8,6 +8,7 @@ import {
   Tag,
   Heart,
 } from "lucide-react";
+import Dompurify from "dompurify"
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -221,13 +222,8 @@ const DetailBerita = () => {
 
           <div className="article-content prose prose-lg prose-invert max-w-none">
             {detailBerita?.isi ? (
-              <div className="text-white/90 leading-relaxed space-y-6">
-                {detailBerita.isi.split("\n\n").map((paragraph, index) => (
-                  <p key={index} className="text-lg leading-relaxed">
-                    {paragraph.trim()}
-                  </p>
-                ))}
-              </div>
+              <div className="text-white/90 leading-relaxed space-y-6 prose prose-invert"
+              dangerouslySetInnerHTML={{__html: Dompurify.sanitize(detailBerita.isi)}}/>
             ) : (
               <div className="space-y-4">
                 {[...Array(8)].map((_, i) => (

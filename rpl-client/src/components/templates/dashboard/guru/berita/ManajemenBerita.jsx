@@ -14,6 +14,7 @@ import SelectDropdown from "../../../../atoms/SelectDropdown";
 import SearchInput from "../../../../atoms/SearchInput";
 import ConfirmationDeleteModal from "../../../../moleculs/ConfDeleteModal";
 import { deleteBerita } from "../../../../../api/services/BeritaService";
+import WrapperLayout from "../../WrapperLayout";
 
 const ManajemenBerita = () => {
   const {
@@ -28,11 +29,17 @@ const ManajemenBerita = () => {
     refreshData,
     toggleDropdwon,
     setToggleDropdwon,
+    setSearchTerm
   } = useBeritaSaya();
 
   const ManajemenBeritaCols = ColumnTableManajemenBerita({
     onRefresh: refreshData,
   });
+
+  const handleClear = () => {
+    setSearchTerm('');
+    refreshData();
+  }
 
   if (error) {
     return (
@@ -51,8 +58,8 @@ const ManajemenBerita = () => {
   }
 
   return (
-    <>
-      <div className="flex flex-col gap-6">
+    <WrapperLayout>
+      <div className="flex flex-col gap-7">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-[var(--deep-purple)] text-xl font-eudo-bold">
@@ -76,7 +83,7 @@ const ManajemenBerita = () => {
           <SearchInput
             value={searchTerm}
             onChange={(e) => handleSearchChange(e.target.value)}
-            onClear={refreshData}
+            onClear={handleClear}
             placeholder="Cari berita..."
           />
 
@@ -105,74 +112,18 @@ const ManajemenBerita = () => {
           </button>
         </div>
 
-        <div className="w-full rounded-lg shadow-md overflow-hidden">
-          
-              <div className="overflow-x-auto max-h-[calc(100vh-307px)]">
-                <Table
-                  loading={loading}
-                  data={berita}
-                  columns={ManajemenBeritaCols}
-                  emptyMessage={<EmptyStateTable />}
-                />
-              </div>
-
-              {berita.length > 0 && (
-                <div className="flex justify-between items-center p-4 border-t bg-[var(--indigo-dark)] border-gray-300">
-                  <div className="text-sm text-white">
-                    Menampilkan {berita.length} dari {pagination.total} berita
-                  </div>
-
-                  <div className="flex gap-4">
-                    <button
-                      onClick={() =>
-                        handlePageChange(pagination.currentPage - 1)
-                      }
-                      disabled={pagination.currentPage === 1}
-                      className="p-1 bg-[var(--lime)] shadow rounded-lg disabled:bg-neutral-400 text-sm"
-                    >
-                      <ChevronLeftIcon size={20} />
-                    </button>
-
-                    <div className="flex gap-1">
-                      {Array.from(
-                        { length: Math.min(5, pagination.lastPage) },
-                        (_, i) => {
-                          const page = i + 1;
-                          return (
-                            <button
-                              key={page}
-                              onClick={() => handlePageChange(page)}
-                              className={`px-3 py-1  text-white rounded text-sm ${
-                                pagination.currentPage === page
-                                  ? "bg-[var(--lime)] !text-[var(--indigo-dark)]"
-                                  : "hover:bg-[var(--lime)]/30"
-                              }`}
-                            >
-                              {page}
-                            </button>
-                          );
-                        }
-                      )}
-
-                      {pagination.lastPage > 5 && (
-                        <span className="px-2 py-1">...</span>
-                      )}
-                    </div>
-
-                    <button
-                      onClick={() =>
-                        handlePageChange(pagination.currentPage + 1)
-                      }
-                      disabled={pagination.currentPage === pagination.lastPage}
-                      className="p-1  bg-[var(--lime)] shadow rounded-lg disabled:bg-neutral-400 text-sm"
-                    >
-                      <ChevronRightIcon size={20} />
-                    </button>
-                  </div>
-                </div>
-              )}
-           
-        
+        <div className="w-full rounded-lg shadow-md overflow-hidden"
+         style={{ minHeight: 'calc(100vh - 300px)' }}>
+            <Table
+              loading={loading}
+              data={berita}
+              pagination={pagination}
+              onPageChange={handlePageChange}
+              showPagination={true}
+              columns={ManajemenBeritaCols}
+              emptyMessage={<EmptyStateTable />}
+            />
+         
         </div>
       </div>
 
@@ -189,7 +140,7 @@ const ManajemenBerita = () => {
           }
         }}
       />
-    </>
+    </WrapperLayout>
   );
 };
 

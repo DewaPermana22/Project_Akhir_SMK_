@@ -1,4 +1,3 @@
-
 :root {
   --size: 35px;
   --line: 1px;
@@ -71,60 +70,101 @@
 
 @font-face {
   font-family: "eudoxsussans-regular";
-  src: url("/fonts/Eudoxus/EudoxusSans-Regular-BF659b6cb1d4714.ttf");
-}
-@font-face {
-  font-family: "eudoxsussans-medium";
-  src: url("/fonts/Eudoxus/EudoxusSans-Medium-BF659b6cb1c14cb.ttf");
-}
-@font-face {
-  font-family: "eudoxsussans-bold";
-  src: url("/fonts/Eudoxus/EudoxusSans-Bold-BF659b6cb1408e5.ttf");
-}
-@font-face {
-  font-family: "eudoxsussans-Xtrabold";
-  src: url("/fonts/Eudoxus/EudoxusSans-ExtraBold-BF659b6cb1b96c9.ttf");
-}
-@font-face {
-  font-family: "author-medium";
-  src: url("/fonts/Author/Author-Medium.ttf");
-}
-@font-face {
-  font-family: "author-bold";
-  src: url("/fonts/Author/Author-Bold.ttf");
+  src: url("/fonts/Eudoxus/EudoxusSans-Regular-BF659b6cb1d4714.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-html{
+@font-face {
+  font-family: "eudoxsussans-medium";
+  src: url("/fonts/Eudoxus/EudoxusSans-Medium-BF659b6cb1c14cb.ttf")
+    format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "eudoxsussans-bold";
+  src: url("/fonts/Eudoxus/EudoxusSans-Bold-BF659b6cb1408e5.ttf")
+    format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "eudoxsussans-Xtrabold";
+  src: url("/fonts/Eudoxus/EudoxusSans-ExtraBold-BF659b6cb1b96c9.ttf")
+    format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "author-medium";
+  src: url("/fonts/Author/Author-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "author-bold";
+  src: url("/fonts/Author/Author-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 body {
   -webkit-font-smoothing: antialiased; /* Chrome, Safari */
-  -moz-osx-font-smoothing: grayscale;  /* Firefox di Mac */
+  -moz-osx-font-smoothing: grayscale; /* Firefox di Mac */
 }
 
-*{
+* {
   scrollbar-width: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
 @import "tailwindcss";
 
-
 @custom-variant dark (&:is(.dark *));
-@theme{
-  --default-font-family : "eudoxsussans-medium", sans-serif;
-  --text-white : "#fff";
-  --lavender : "#c9adfb";
-  --purple : "#322949";
-  --red : #E62727;
-  --blue : #0046FF;
-  --violet : "#514276";
-  --lavender-bg : "#eee6ff";
+@theme {
+  --default-font-family: "eudoxsussans-medium", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --text-white: "#fff";
+  --lavender: "#c9adfb";
+  --purple: "#322949";
+  --red: #e62727;
+  --blue: #0046ff;
+  --violet: "#514276";
+  --lavender-bg: "#eee6ff";
   --lime: #c9fa75;
-  --font-eudo-bold : "eudoxsussans-bold", sans-serif;
-  --font-author-bold : "author-bold", sans-serif;
-  --font-author-medium : "author-medium", sans-serif;
-  --indigo-dark : "#181227";
+  --font-eudo-bold: "eudoxsussans-bold", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+  --font-author-bold: "author-bold", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+  --font-author-medium: "author-medium", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+  --indigo-dark: "#181227";
 }
 
 @theme inline {

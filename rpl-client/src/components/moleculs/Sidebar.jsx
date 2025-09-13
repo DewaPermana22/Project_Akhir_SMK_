@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import MenuSidebar from '../atoms/MenuSidebar';
 import * as LucideIcons from "lucide-react";
 import { toggleSection } from '@/features/ActiveMenu';
-import { openModalConfirmLogout } from "@/features/modals/ConfirmLogoutModalSlice";
-import LogoutConfirmationModal from "./modal&alert/LogoutConfirmationModal";
-import { Link } from "react-router";
+import SidebarFooter from "../atoms/sidebar/sidebar-footer";
+import SidebarHeader from "../atoms/sidebar/sidebar-header";
 
 const Sidebar = ({ isOpen, onClose, onMenuClick }) => {
   const dispatch = useDispatch();
@@ -47,11 +46,11 @@ const Sidebar = ({ isOpen, onClose, onMenuClick }) => {
           </div>
           <div
             className={`
-            overflow-scroll transition-all duration-300 ease-in-out
+            overflow-hidden transition-all duration-300 ease-in-out
             ${isExpanded ? "max-h-56 opacity-100" : "max-h-0 opacity-0"}
           `}
           >
-            <ul className="ml-6 mt-2 space-y-2 overflow-y-scroll">
+            <ul className="ml-6 mt-2 space-y-2">
               {menu.children.map((child) => (
                 <MenuSidebar
                   key={child.key}
@@ -77,59 +76,35 @@ const Sidebar = ({ isOpen, onClose, onMenuClick }) => {
 
   return (
     <>
+     
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-40 xl:hidden"
+          onClick={onClose}
+        />
+      )}
+      
       <aside
         className={`
           bg-[var(--indigo-dark)] h-screen fixed xl:static top-0 left-0 z-50
-          transform transition-transform duration-300
-          ${isOpen ? "translate-x-0" : "-translate-x-full"} 
-          xl:translate-x-0
-          max-w-[280px] w-full p-5 border-r border-r-[var(--gray-1)]
+          flex-shrink-0 overflow-hidden
+          transition-all duration-300 ease-in-out
+          ${isOpen 
+            ? "w-[270px] translate-x-0" 
+            : "w-0 xl:w-0 -translate-x-full xl:translate-x-0"
+          }
         `}
       >
-        <div className="flex flex-col justify-between h-full">
-          <div className="flex items-center">
-            <object
-              className="max-w-[50px] w-full h-auto object-contain"
-              data="/svg/Logo-Transparent.svg"
-              type=""
-            />
-            <div className="flex flex-col justify-start">
-              <p className="font-bold text-[var(--lavender)] text-sm">
-                SIA RPLSMKDJ.
-              </p>
-              <span className="text-[11px] text-white">
-                SISTEM INFORMASI AKADEMIK
-              </span>
-            </div>
-            <LucideIcons.X
-              onClick={onClose}
-              size={20}
-              className="absolute xl:hidden block top-5 right-5 text-[var(--lime)] cursor-pointer"
-            />
+        <div className="flex flex-col justify-between h-full w-[270px] p-5">
+          <SidebarHeader eventClick={onClose}/>
+          <div className="flex-1 overflow-y-auto mt-7">
+            <ul className="flex flex-col gap-3">
+              {menus.map(renderMenuItem)}
+            </ul>
           </div>
-
-          {/* Menu */}
-          <ul className="flex mt-7 overflow-y-scroll h-full flex-col gap-3">
-            {menus.map(renderMenuItem)}
-          </ul>
-
-          {/* Footer */}
-          <ul className="flex bg-[var(--indigo-dark)] right-0 left-0 fixed bottom-0 flex-col flex-shrink-0">
-            <Link to="profile" className="text-white flex gap-3 cursor-pointer hover:bg-[var(--indigo-light)] p-3 rounded-md transition-colors duration-200">
-              <LucideIcons.CircleUserRound size={20} /> Profile
-            </Link>
-            <li
-              onClick={() => dispatch(openModalConfirmLogout())}
-              className="text-red-500 flex gap-3 cursor-pointer hover:bg-red-500/10 p-3 rounded-md transition-colors duration-200"
-            >
-              <LucideIcons.DoorOpen size={20} />
-              Logout
-            </li>
-          </ul>
+          <SidebarFooter/>
         </div>
       </aside>
-
-      <LogoutConfirmationModal />
     </>
   );
 };

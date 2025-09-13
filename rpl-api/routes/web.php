@@ -13,6 +13,9 @@ Route::get('/', function () {
 
 Route::prefix('api')->group(function () {
     Route::post('/login', [ApiController::class, 'login']);
+    Route::post('/news', [BeritaController::class, 'PostBerita']);
+    Route::get('/news/latest', [BeritaController::class, 'GetBeritaTerbaru']);
+    Route::get('/news/all', [BeritaController::class, 'GetSemuaBerita']);
     Route::middleware('auth:sanctum')->group(function () {
         Route::post('/logout', [ApiController::class, 'logout']);
         Route::get('/user', [ApiController::class, 'user']);
@@ -21,10 +24,7 @@ Route::prefix('api')->group(function () {
         Route::get('/kategori-berita', [KategoriBeritaController::class, 'GetKategoriBerita']);
         Route::put('/kategori-berita/{kategoriBerita}', [KategoriBeritaController::class, 'update']);
         Route::delete('/kategori-berita/{kategoriBerita}', [KategoriBeritaController::class, 'DeleteKategoriBerita']);
-
-        Route::post('/news', [BeritaController::class, 'PostBerita']);
-        Route::get('/news/latest', [BeritaController::class, 'GetBeritaTerbaru']);
-        Route::get('/news/all', [BeritaController::class, 'GetSemuaBerita']);
+       
         Route::get('/news/my-news', [BeritaController::class, 'GetMyBerita']);
         Route::get('/news/detail/{news_id}', [BeritaController::class, 'GetDetailBerita']);
         Route::post('/news/edit/{news_id}', [BeritaController::class, 'updateBerita']);

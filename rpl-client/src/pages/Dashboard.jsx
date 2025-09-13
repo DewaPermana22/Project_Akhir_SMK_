@@ -4,7 +4,6 @@ import { useNavigate, useLocation, Outlet } from "react-router-dom";
 import { setActiveMenu } from "../features/ActiveMenu";
 import { closeSidebar, openSidebar } from "../features/SidebarSlice";
 import Sidebar from "../components/moleculs/Sidebar";
-import NavbarDashboard from "../components/moleculs/NavbarDashboard";
 import { mappMenu } from "../constants/menu-dashboard";
 
 const Dashboard = () => {
@@ -12,7 +11,6 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { menus, activeMenu } = useSelector((state) => state.menu);
-  const { user } = useSelector((state) => state.user);
   const { isOpen } = useSelector((state) => state.sidebar);
 
   const routeMenuMap = Object.fromEntries(
@@ -37,7 +35,7 @@ const Dashboard = () => {
   }, [location.pathname, activeMenu, dispatch, routeMenuMap]);
 
   return (
-    <div className="bg-slate-50 flex">
+    <div className="bg-[var(--indigo-dark)] h-screen overflow-hidden flex">
       <Sidebar
         menus={menus}
         activeMenu={activeMenu}
@@ -45,14 +43,8 @@ const Dashboard = () => {
         isOpen={isOpen}
         onClose={() => dispatch(closeSidebar())}
       />
-      <main className="flex-1">
-        <NavbarDashboard
-          user={user}
-          onOpenSidebar={() => dispatch(openSidebar())}
-        />
-        <div className="p-5 mt-16 xl:mt-0">
-          <Outlet />
-        </div>
+      <main className={`flex-1 overflow-y-auto p-3 h-screen`}>
+        <Outlet />
       </main>
     </div>
   );

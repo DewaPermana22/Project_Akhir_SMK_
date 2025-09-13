@@ -9,7 +9,7 @@ const MenuSidebar = ({ menu, activeMenu, onClick }) => {
         activeMenu === menu.key
           ? "bg-[var(--lime)] text-[var(--indigo-dark)]"
           : "text-white"
-      } p-3 rounded-2xl text-sm font-eudo-bold cursor-pointer`}
+      } p-2 rounded-lg text-sm font-eudo-bold cursor-pointer`}
       onClick={() => onClick(menu.key)}
     >
       <Icon size={18} />

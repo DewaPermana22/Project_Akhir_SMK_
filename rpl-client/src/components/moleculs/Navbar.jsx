@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MdClose } from "react-icons/md";
 import { IoMenu } from "react-icons/io5";
 import { HashLink } from "react-router-hash-link";
@@ -17,7 +17,12 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
-  const isAuth = useSelector((state) => state.user);
+  const isAuth = useSelector((state) => state.user.isAuth);
+  
+  useEffect(() => {
+    
+  }, [isAuth]);
+
   const ClickButton = async () => {
     try {
       toast.promise(getUserAuth(), {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { ChevronUp, ChevronDown, ChevronsUpDown, Loader2 } from 'lucide-react';
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
+import { ChevronUp, ChevronDown, ChevronsUpDown, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
+import LoadingTable from '../templates/loading/LoadingTable';
+
 const Table = ({ 
   columns = [], 
   data = [], 
@@ -12,7 +12,11 @@ const Table = ({
   defaultSort = { key: '', direction: 'asc' },
   className = "",
   striped = false,
-  compact = false
+  compact = false,
+  showPagination = false,
+  pagination = null,
+  onPageChange,
+  itemsPerPage = 10,
 }) => {
   const [sortConfig, setSortConfig] = useState(defaultSort);
 
@@ -57,18 +61,77 @@ const Table = ({
       : <ChevronDown size={14} className="ml-1" />;
   };
 
-  if (loading) {
+  const handlePageChange = (page) => {
+    if (onPageChange && page >= 1 && page <= (pagination?.lastPage || 1)) {
+      onPageChange(page);
+    }
+  };
+
+  const renderPagination = () => {
+    if (!showPagination || !pagination) return null;
+
     return (
-      <div className={`bg-gray-50 rounded-lg shadow-sm border border-gray-200 overflow-scroll ${className}`}>
-        <div className="animate-pulse">
-          <Skeleton borderRadius={0}  baseColor='#d1d5db' className="h-12" />
-          {[1, 2, 3, 4, 5].map((row) => (
-            <div key={row} className="border-b border-gray-200">
-              <Skeleton borderRadius={0} baseColor='#d1d5db' className="h-16" />
-            </div>
-          ))}
+      <div className="flex justify-between items-center p-4 border-t bg-[var(--indigo-dark)] border-gray-300">
+        <div className="text-sm text-white">
+          Menampilkan {data.length} dari {pagination.total} data
+        </div>
+
+        <div className="flex gap-4">
+          <button
+            onClick={() => handlePageChange(pagination.currentPage - 1)}
+            disabled={pagination.currentPage === 1}
+            className="p-1 bg-[var(--lime)] shadow rounded-lg disabled:bg-neutral-400 text-sm transition-colors"
+          >
+            <ChevronLeftIcon size={20} />
+          </button>
+
+          <div className="flex gap-1">
+            {Array.from(
+              { length: Math.min(5, pagination.lastPage) },
+              (_, i) => {
+                const page = i + 1;
+                return (
+                  <button
+                    key={page}
+                    onClick={() => handlePageChange(page)}
+                    className={`px-3 py-1 text-white rounded text-sm transition-colors ${
+                      pagination.currentPage === page
+                        ? "bg-[var(--lime)] !text-[var(--indigo-dark)]"
+                        : "hover:bg-[var(--lime)]/30"
+                    }`}
+                  >
+                    {page}
+                  </button>
+                );
+              }
+            )}
+
+            {pagination.lastPage > 5 && (
+              <span className="px-2 py-1 text-white">...</span>
+            )}
+          </div>
+
+          <button
+            onClick={() => handlePageChange(pagination.currentPage + 1)}
+            disabled={pagination.currentPage === pagination.lastPage}
+            className="p-1 bg-[var(--lime)] shadow rounded-lg disabled:bg-neutral-400 text-sm transition-colors"
+          >
+            <ChevronRightIcon size={20} />
+          </button>
         </div>
       </div>
+    );
+  };
+
+  if (loading) {
+    return (
+      <LoadingTable 
+        columns={columns} 
+        itemsPerPage={itemsPerPage} 
+        className={className} 
+        compact={compact}
+        showPagination={showPagination}
+      />
     );
   }
 
@@ -84,7 +147,7 @@ const Table = ({
                   scope="col"
                   className={`
                     px-6 py-4 text-center text-xs font-medium text-white uppercase tracking-wider
-                    ${sortable ? 'cursor-pointer hover:bg-gray-100' : ''}
+                    ${sortable ? 'cursor-pointer hover:bg-indigo-800' : ''}
                     ${column.headerClassName || ''}
                   `}
                   style={{
@@ -142,14 +205,7 @@ const Table = ({
               <tr>
                 <td colSpan={columns.length} className="px-6 py-12 text-center">
                   <div className="flex flex-col items-center justify-center text-gray-500">
-                    {loading ? (
-                      <>
-                        <Loader2 size={32} className="animate-spin mb-2" />
-                        <p>Memuat data...</p>
-                      </>
-                    ) : (
-                      emptyMessage
-                    )}
+                    {emptyMessage}
                   </div>
                 </td>
               </tr>
@@ -157,6 +213,8 @@ const Table = ({
           </tbody>
         </table>
       </div>
+      
+      {renderPagination()}
     </div>
   );
 };

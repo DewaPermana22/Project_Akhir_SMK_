@@ -89,7 +89,8 @@ const handlePerPageSelect = (selectedId) => {
     refreshData,
     fetchBerita,
     toggleDropdwon,
-    setToggleDropdwon
+    setToggleDropdwon,
+    setSearchTerm
   };
 };
 

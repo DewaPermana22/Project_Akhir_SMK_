@@ -1,8 +1,11 @@
 import React from 'react'
+import WrapperLayout from '../WrapperLayout'
 
 const GuruDashboard = () => {
   return (
-    <div>GuruDashboard</div>
+   <WrapperLayout>
+    <h1>Guru Dashboard</h1>
+   </WrapperLayout>
   )
 }
 
