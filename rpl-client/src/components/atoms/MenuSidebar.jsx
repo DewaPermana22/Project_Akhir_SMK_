@@ -7,8 +7,8 @@ const MenuSidebar = ({ menu, activeMenu, onClick }) => {
     <li
       className={`flex items-center gap-3 ${
         activeMenu === menu.key
-          ? "bg-[var(--lime)] text-[var(--indigo-dark)]"
-          : "text-white"
+          ? "bg-[var(--blue)] text-white"
+          : "text-gray-700"
       } p-2 rounded-lg text-sm font-eudo-bold cursor-pointer`}
       onClick={() => onClick(menu.key)}
     >

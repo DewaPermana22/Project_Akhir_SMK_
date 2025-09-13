@@ -40,7 +40,7 @@ export default function TiptapEditor({
 
   return (
     <div
-      className={`mx-auto rounded-lg shadow-lg border border-gray-200 ${className}`}
+      className={`mx-auto rounded-lg bg-white shadow-xs border border-gray-200 ${className}`}
     >
       {!readOnly && (
         <TiptapToolbar

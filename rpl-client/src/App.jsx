@@ -11,6 +11,9 @@ import ManajemenBerita from "./components/templates/dashboard/guru/berita/Manaje
 import LayoutBerita from "./components/templates/dashboard/guru/berita/layout";
 import SemuaBerita from "./pages/SemuaBerita";
 import DetailBerita from "./pages/DetailBerita";
+import LayoutSiswa from "./components/templates/dashboard/guru/manajemen-siswa/layout";
+import DaftarKelas from "./components/templates/dashboard/guru/manajemen-siswa/DaftarKelas";
+import DaftarSiswaPerKelas from "./components/templates/dashboard/guru/manajemen-siswa/DaftarSiswaPerKelas";
 
 function App() {
   return (
@@ -48,6 +51,12 @@ function App() {
             <Route path="update/:id" element={<TambahBerita />} />
           </Route>
 
+          {/* Route Manajemen Siswa */}
+          <Route path="data-siswa" element={<LayoutSiswa />}>
+            <Route index element={<DaftarKelas />}/>
+            <Route path="kelas/:idkelas" element={<DaftarSiswaPerKelas />} />
+            {/* <Route path="update/:id" element={<TambahBerita />} /> */}
+          </Route>
           {/* Route Profile Guru */}
           <Route path="profile" element={<div>Profile Guru</div>} />
         </Route>

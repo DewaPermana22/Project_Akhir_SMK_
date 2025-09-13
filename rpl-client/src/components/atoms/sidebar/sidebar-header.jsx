@@ -10,10 +10,10 @@ const SidebarHeader = ({ eventClick, classnames }) => {
         type=""
       />
       <div className="flex flex-col justify-start">
-        <p className="font-bold text-[var(--lavender)] text-sm">
+        <p className="font-bold text-[var(--blue)] text-sm">
           SIA RPLSMKDJ.
         </p>
-        <span className="text-[11px] text-white">
+        <span className="text-xs text-neutral-700">
           SISTEM INFORMASI AKADEMIK
         </span>
       </div>

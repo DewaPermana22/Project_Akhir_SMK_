@@ -151,10 +151,11 @@ body {
   --default-font-family: "eudoxsussans-medium", -apple-system,
     BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --text-white: "#fff";
+  --bg-off-white: "#F0F4FF"
   --lavender: "#c9adfb";
   --purple: "#322949";
   --red: #e62727;
-  --blue: #0046ff;
+  --blue: #5348E8;
   --violet: "#514276";
   --lavender-bg: "#eee6ff";
   --lime: #c9fa75;

@@ -142,7 +142,7 @@ const BodyUploadBerita = forwardRef(({ onFormChange }, ref) => {
   );
 
   return (
-    <div className="space-y-3 mt-5">
+    <div className="space-y-3 mt-0 xl:mt-5">
       <div className="space-y-2">
         <label
           htmlFor="gambar"

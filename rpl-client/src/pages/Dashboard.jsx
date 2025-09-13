@@ -35,7 +35,7 @@ const Dashboard = () => {
   }, [location.pathname, activeMenu, dispatch, routeMenuMap]);
 
   return (
-    <div className="bg-[var(--indigo-dark)] h-screen overflow-hidden flex">
+    <div className="bg-slate-100 h-screen overflow-hidden flex">
       <Sidebar
         menus={menus}
         activeMenu={activeMenu}

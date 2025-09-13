@@ -14,14 +14,14 @@ export const ColumnTableManajemenBerita = (options = {}, loading) => {
       minWidth: "300px",
       render: (row, rowIndex) => (
         <div className="flex items-center w-full">
-          <div className="flex-shrink-0 p-2 shadow bg-[var(--lime)] rounded-md flex items-center justify-center">
-            <GlobeIcon size={20} className="text-[var(--indigo-dark)]" />
+          <div className="flex-shrink-0 p-2 shadow bg-indigo-100 rounded-md flex items-center justify-center">
+            <GlobeIcon size={20} className="text-indigo-600 text-shadow-indigo-600" />
           </div>
           <div className="ml-4 min-w-0 flex-1">
-            <div className="text-sm font-bold text-[var(--indigo-dark)] truncate">
+            <div className="text-sm font-bold text-gray-700 truncate">
               {row.judul}
             </div>
-            <div className="text-xs text-gray-400 truncate">
+            <div className="text-xs text-gray-500 truncate">
               Oleh: {row.author || row.judul}
             </div>
           </div>
@@ -37,7 +37,7 @@ export const ColumnTableManajemenBerita = (options = {}, loading) => {
       cellClassName: "text-center",
       render: (row) => (
         <div className="flex justify-center">
-          <span className="px-3 py-1 rounded-full text-xs font-medium text-purple-600 bg-purple-100 whitespace-nowrap">
+          <span className="px-3 py-1 rounded-full text-xs font-medium text-indigo-600 bg-indigo-200 whitespace-nowrap">
             {row.kategori}
           </span>
         </div>

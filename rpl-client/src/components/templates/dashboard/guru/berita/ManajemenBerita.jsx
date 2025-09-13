@@ -1,20 +1,18 @@
-import EmptyStateTable from "../../../../atoms/EmptyStateTable";
-import Table from "../../../../moleculs/Table";
-import { ColumnTableManajemenBerita } from "../../../../atoms/tables/column-table-manajemen-berita";
 import {
   PlusCircleIcon,
   RotateCw,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  Loader2Icon,
 } from "lucide-react";
 import { Link } from "react-router";
-import useBeritaSaya from "../../../../../hooks/useBeritaSaya";
-import SelectDropdown from "../../../../atoms/SelectDropdown";
-import SearchInput from "../../../../atoms/SearchInput";
-import ConfirmationDeleteModal from "../../../../moleculs/ConfDeleteModal";
-import { deleteBerita } from "../../../../../api/services/BeritaService";
+import HeaderDashboardPages from "@/components/atoms/header-dashboard-pages";
+import Table from "@/components/moleculs/Table";
+import EmptyStateTable from "@/components/atoms/EmptyStateTable";
+import { ColumnTableManajemenBerita } from "@/components/atoms/tables/column-table-manajemen-berita";
+import SearchInput from "@/components/atoms/SearchInput";
+import SelectDropdown from "@/components/atoms/SelectDropdown";
+import useBeritaSaya from "@/hooks/useBeritaSaya";
 import WrapperLayout from "../../WrapperLayout";
+import { deleteBerita } from "@/api/services/BeritaService";
+import ConfirmationDeleteModal from "@/components/moleculs/ConfDeleteModal";
 
 const ManajemenBerita = () => {
   const {
@@ -29,7 +27,7 @@ const ManajemenBerita = () => {
     refreshData,
     toggleDropdwon,
     setToggleDropdwon,
-    setSearchTerm
+    setSearchTerm,
   } = useBeritaSaya();
 
   const ManajemenBeritaCols = ColumnTableManajemenBerita({
@@ -37,9 +35,9 @@ const ManajemenBerita = () => {
   });
 
   const handleClear = () => {
-    setSearchTerm('');
+    setSearchTerm("");
     refreshData();
-  }
+  };
 
   if (error) {
     return (
@@ -61,19 +59,15 @@ const ManajemenBerita = () => {
     <WrapperLayout>
       <div className="flex flex-col gap-7">
         <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-[var(--deep-purple)] text-xl font-eudo-bold">
-              Kelola Data Berita
-            </h1>
-            <p className="text-[var(--violet)] text-sm">
-              Sistem terpusat untuk mengelola konten berita dengan cepat dan
-              terstruktur.
-            </p>
-          </div>
-
+          <HeaderDashboardPages
+            mainHeader={"Kelola Data Berita"}
+            descriptionText={
+              "Sistem terpusat untuk mengelola konten berita dengan cepat dan terstruktur."
+            }
+          />
           <Link
             to="tambah"
-            className="bg-[var(--lime)] flex gap-2 items-center shadow cursor-pointer text-[var(--indigo-dark)] font-medium font-eudoxsussans-medium text-[15px] px-4 py-2 rounded-lg"
+            className="bg-[var(--blue)] flex gap-2 items-center shadow cursor-pointer text-white font-medium font-eudoxsussans-medium text-[15px] px-4 py-2 rounded-lg"
           >
             <PlusCircleIcon size={20} /> Tambah
           </Link>
@@ -105,25 +99,27 @@ const ManajemenBerita = () => {
           <button
             onClick={refreshData}
             disabled={loading}
-            className="p-2 text-gray-600 hover:text-gray-800 disabled:opacity-50"
+            className="p-2 text-gray-700 hover:text-gray-800 disabled:opacity-50"
             title="Refresh data"
           >
             <RotateCw size={20} className={loading ? "animate-spin" : ""} />
           </button>
         </div>
 
-        <div className="w-full rounded-lg shadow-md overflow-hidden"
-         style={{ minHeight: 'calc(100vh - 300px)' }}>
-            <Table
-              loading={loading}
-              data={berita}
-              pagination={pagination}
-              onPageChange={handlePageChange}
-              showPagination={true}
-              columns={ManajemenBeritaCols}
-              emptyMessage={<EmptyStateTable />}
-            />
-         
+        <div
+          className="w-full rounded-lg shadow-md overflow-hidden"
+          style={{ minHeight: "calc(100vh - 300px)" }}
+        >
+          <Table
+            sortable={true}
+            loading={loading}
+            data={berita}
+            pagination={pagination}
+            onPageChange={handlePageChange}
+            showPagination={true}
+            columns={ManajemenBeritaCols}
+            emptyMessage={<EmptyStateTable />}
+          />
         </div>
       </div>
 

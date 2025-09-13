@@ -71,8 +71,8 @@ const Table = ({
     if (!showPagination || !pagination) return null;
 
     return (
-      <div className="flex justify-between items-center p-4 border-t bg-[var(--indigo-dark)] border-gray-300">
-        <div className="text-sm text-white">
+      <div className="flex justify-between items-center p-4 border-t bg-slate-50  border-slate-2  00">
+        <div className="text-sm text-gray-500">
           Menampilkan {data.length} dari {pagination.total} data
         </div>
 
@@ -80,7 +80,7 @@ const Table = ({
           <button
             onClick={() => handlePageChange(pagination.currentPage - 1)}
             disabled={pagination.currentPage === 1}
-            className="p-1 bg-[var(--lime)] shadow rounded-lg disabled:bg-neutral-400 text-sm transition-colors"
+            className="p-1 bg-[var(--blue)] text-white shadow rounded-lg disabled:bg-gray-300 disabled:text-gray-400 text-sm transition-colors"
           >
             <ChevronLeftIcon size={20} />
           </button>
@@ -94,10 +94,10 @@ const Table = ({
                   <button
                     key={page}
                     onClick={() => handlePageChange(page)}
-                    className={`px-3 py-1 text-white rounded text-sm transition-colors ${
+                    className={`px-3 py-1 text-gray-700 rounded text-sm ease-linear transition-colors ${
                       pagination.currentPage === page
-                        ? "bg-[var(--lime)] !text-[var(--indigo-dark)]"
-                        : "hover:bg-[var(--lime)]/30"
+                        ? "bg-indigo-200 !text-indigo-600"
+                        : "hover:bg-indigo-100 hover:cursor-pointer"
                     }`}
                   >
                     {page}
@@ -114,7 +114,7 @@ const Table = ({
           <button
             onClick={() => handlePageChange(pagination.currentPage + 1)}
             disabled={pagination.currentPage === pagination.lastPage}
-            className="p-1 bg-[var(--lime)] shadow rounded-lg disabled:bg-neutral-400 text-sm transition-colors"
+            className="p-1 bg-[var(--blue)] text-white shadow rounded-lg disabled:bg-gray-300 disabled:text-gray-400 text-sm transition-colors"
           >
             <ChevronRightIcon size={20} />
           </button>
@@ -138,16 +138,16 @@ const Table = ({
   return (
     <div className={`overflow-hidden shadow-md ${className}`}>
       <div className="overflow-x-auto">
-        <table className={`w-full shadow-md relative table-fixed divide-y divide-[var(--indigo-dark)] ${compact ? 'text-sm' : ''}`}>
-          <thead className="bg-[var(--indigo-dark)]">
+        <table className={`w-full shadow-md relative table-fixed divide-y divide-slate-200 ${compact ? 'text-sm' : ''}`}>
+          <thead className="bg-slate-50">
             <tr>
               {columns.map((column, index) => (
                 <th
                   key={index}
                   scope="col"
                   className={`
-                    px-6 py-4 text-center text-xs font-medium text-white uppercase tracking-wider
-                    ${sortable ? 'cursor-pointer hover:bg-indigo-800' : ''}
+                    px-6 py-4 text-center text-xs transition-colors duration-200 ease-linear font-medium text-gray-700 uppercase tracking-wider
+                    ${sortable ? 'cursor-pointer hover:bg-indigo-50' : ''}
                     ${column.headerClassName || ''}
                   `}
                   style={{
@@ -166,7 +166,7 @@ const Table = ({
               ))}
             </tr>
           </thead>
-          <tbody className="bg-gray-100 divide-y divide-gray-300">
+          <tbody className="bg-white divide-y divide-slate-100">
             {sortedData.length > 0 ? (
               sortedData.map((row, rowIndex) => (
                 <tr

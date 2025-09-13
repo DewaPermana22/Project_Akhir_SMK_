@@ -1,9 +1,10 @@
-import { ArrowBigLeftDash, Loader2Icon, Plug, UploadIcon } from "lucide-react";
-import { Link, useParams } from "react-router";
+
+import { useParams } from "react-router";
 import BodyUploadBerita from "../../../../moleculs/BodyUploadBerita";
 import { useRef, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import WrapperLayout from "../../WrapperLayout";
+import ActionButton from "@/components/moleculs/upload-berita/action-button";
 
 const TambahBerita = () => {
   const showToast = () => toast.success("Berita berhasil diunggah!");
@@ -41,46 +42,33 @@ const TambahBerita = () => {
     <WrapperLayout>
       <div className="space-y-2">
         <div className="flex-col flex lg:space-y-0 space-y-5 lg:flex-row items-center justify-between">
-          <div>
-            <h1 className="text-[var(--deep-purple)] text-xl font-eudo-bold">
+          <div className="w-full">
+            <h1 className="text-gray-600 text-xl font-eudo-bold">
               {id ? "Edit Berita" : "Unggah Berita Baru"}
             </h1>
-            <p className="text-[var(--violet)] text-xs lg:text-sm">
+            <p className="text-indigo-600 text-xs lg:text-sm">
               {id
                 ? "Ubah informasi berita dengan mengedit berita ini."
                 : "Mulai bagikan informasi terbaru dengan menambahkan berita baru disini."}
             </p>
           </div>
 
-          <div className="flex gap-2 p-2 lg:p-0">
-            <button
-              onClick={handleSubmit}
-              disabled={!canSubmit}
-              type="submit"
-              className={`${
-                canSubmit
-                  ? "bg-[var(--lime)] hover:bg-[var(--lavender)]"
-                  : "bg-gray-300 cursor-not-allowed"
-              } transition-colors duration-300 ease-linear flex gap-2 items-center shadow text-[var(--indigo-dark)] cursor-pointer font-medium font-eudoxsussans-medium text-[15px] px-4 py-2 rounded-lg`}
-            >
-              {isSubmitting ? (
-                <Loader2Icon size={20} className="animate-spin" />
-              ) : (
-                <UploadIcon size={20} />
-              )}
-              {isSubmitting ? "Menyimpan..." : "Simpan"}
-            </button>
-            <Link
-              to={-1}
-              className="bg-red-500 transition-colors duration-300 ease-linear hover:bg-red-600 flex gap-2 items-center shadow cursor-pointer text-white font-medium font-eudoxsussans-medium text-[15px] px-4 py-2 rounded-lg"
-            >
-              <ArrowBigLeftDash size={20} /> Kembali
-            </Link>
-          </div>
+          <ActionButton
+            isSubmitting={isSubmitting}
+            canSubmit={canSubmit}
+            handleSubmit={handleSubmit}
+            className={"hidden lg:flex p-2 lg:p-0"}
+          />
         </div>
         <BodyUploadBerita onFormChange={setFormState} ref={formRef} />
         <Toaster />
       </div>
+        <ActionButton
+          canSubmit={canSubmit}
+          isSubmitting={isSubmitting}
+          handleSubmit={handleSubmit}
+          className="lg:hidden flex p-2 lg:p-0"
+        />
     </WrapperLayout>
   );
 };

@@ -22,7 +22,7 @@ const menusByRole = {
       icon: "FolderCog",
       type: "section",
       children: [
-        { key: "data-siswa", text: "Manajemen Siswa", icon: "UserRoundCog", type: "item" },
+        { key: "data-siswa", text: "Data Siswa", icon: "UserRoundCog", type: "item" },
         { key: "berita-guru", text: "Manajemen Berita", icon: "Globe", type: "item" },
       ],
     },

@@ -15,7 +15,7 @@ const SearchInput = ({
       />
       <input 
         placeholder={placeholder} 
-        className="flex-1 p-1 text-[var(--indigo-dark)] placeholder-gray-400 bg-transparent outline-0 text-sm font-medium"
+        className="flex-1 p-1 text-gray-700 placeholder-gray-400 bg-transparent outline-0 text-sm font-medium"
         type="text"
         value={value}
         onChange={onChange}

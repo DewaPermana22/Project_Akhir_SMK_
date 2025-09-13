@@ -31,7 +31,7 @@ const Sidebar = ({ isOpen, onClose, onMenuClick }) => {
         <li key={menu.key} className="w-full min-h-0 overflow-hidden">
           <div
             onClick={() => handleMenuClick(menu.key, menu.type, hasChildren)}
-            className="flex items-center justify-between w-full p-3 rounded-md cursor-pointer hover:bg-[var(--indigo-light)] text-white transition-colors duration-200"
+            className="flex items-center justify-between w-full p-3 rounded-md cursor-pointer text-gray-500 transition-colors duration-200"
           >
             <div className="flex items-center gap-3">
               {LucideIcons[menu.icon] &&
@@ -86,7 +86,7 @@ const Sidebar = ({ isOpen, onClose, onMenuClick }) => {
       
       <aside
         className={`
-          bg-[var(--indigo-dark)] h-screen fixed xl:static top-0 left-0 z-50
+          bg-white shadow-2xs h-screen fixed xl:static top-0 left-0 z-50
           flex-shrink-0 overflow-hidden
           transition-all duration-300 ease-in-out
           ${isOpen 
