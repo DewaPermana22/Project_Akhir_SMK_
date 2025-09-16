@@ -3,6 +3,6 @@ export const navigationPath = [
   { name: "Pendidik", link: "#educators" },
   { name: "Berita", link: "#news-latest" },
   { name: "Alumni", link: "#alumni" },
-  { name: "Kesiswaan", link: "login.html" },
-  { name: "PPDB", link: "login.html" },
+  { name: "Kesiswaan", link: "#kesiswaan" },
+  { name: "PPDB", link: "#ppdb" },
 ];

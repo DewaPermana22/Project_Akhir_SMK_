@@ -3,7 +3,9 @@ import "../../../style/pendidik.css";
 const PendidikSection = () => {
   return (
     <section id="educators" className="pendidik-section">
-      <h1>Tenaga Pendidik</h1>
+      <h1 className="title-pndidik bg-clip-text text-transparent">
+        Tenaga Pendidik
+      </h1>
       <div className="grid-foto">
         <div className="nama-dan-foto">
           <img src="/images/kukuh_s.png" alt="Kukuh Suprapto" />

@@ -42,7 +42,6 @@
   margin: 0 auto;
 }
 .nama-dan-foto {
-  background-color: var(--lime);
   border-radius: 20px;
   width: 280px;
   height: 350px;
@@ -65,9 +64,9 @@
   height: 60%;
   background: linear-gradient(
     to top,
-    rgba(201, 250, 117, 0.9) 0%,
-    rgba(201, 250, 117, 0.7) 30%,
-    rgba(201, 250, 117, 0.3) 60%,
+    rgba(83,72,232, 0.9) 0%,
+    rgba(83,72,232, 0.7) 30%,
+    rgba(83,72,232, 0.3) 60%,
     transparent 100%
   );
   z-index: 1;
@@ -81,7 +80,7 @@
   height: 40%;
   background: linear-gradient(
     to top,
-    rgba(201, 250, 117, 0.4) 0%,
+    rgba(83,72,232, 0.4) 0%,
     transparent 100%
   );
   backdrop-filter: blur(1px);
@@ -93,7 +92,7 @@
   bottom: 20px;
   left: 20px;
   right: 20px;
-  color: var(--deep-purple);
+  color: var(--off-white);
   z-index: 3;
   display: flex;
   flex-direction: column;
@@ -104,10 +103,10 @@
   margin: 0 0 5px 0;
   font-size: 1.2em;
   font-weight: 600;
-  text-shadow: 0 2px 8px rgba(201, 250, 117, 0.7);
+  text-shadow: 0 2px 8px rgba(83,72,232, 0.7);
 }
 .nama-guru-dan-info p {
   margin: 0;
   font-size: 0.9em;
-  text-shadow: 0 1px 4px rgba(201, 250, 117, 0.6);
+  text-shadow: 0 1px 4px rgba(83,72,232, 0.6);
 }

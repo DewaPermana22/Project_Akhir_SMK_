@@ -5,6 +5,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      boxShadow: {
+        prp: "0px 24px 48px 0px #rgba(99,60,247, 0.15)",
+      },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui"],
         eudo: [

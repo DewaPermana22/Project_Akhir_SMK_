@@ -18,10 +18,8 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const isAuth = useSelector((state) => state.user.isAuth);
-  
-  useEffect(() => {
-    
-  }, [isAuth]);
+
+  useEffect(() => {}, [isAuth]);
 
   const ClickButton = async () => {
     try {
@@ -30,93 +28,119 @@ const Navbar = () => {
         success: (res) => {
           if (res.authenticated) {
             toast.success("Berhasil memuat data pengguna!");
-        dispatch(
-          setUser({
-            name: res.user.name,
-            email: res.user.email,
-            role: getRoleName(res.user.role_id),
-            status: getStatus(res.user.status_id),
-          })
-        );
+            dispatch(
+              setUser({
+                name: res.user.name,
+                email: res.user.email,
+                role: getRoleName(res.user.role_id),
+                status: getStatus(res.user.status_id),
+              })
+            );
 
-        const roleName = getRoleName(res.user.role_id);
-        dispatch(setRole(roleName));
-        navigate(`/dashboard/${roleName.trim().toLowerCase()}`);
-      } else {
-        toast.error("Sesi pengguna telah habis!, Silahkan Login kembali.");
-        dispatch(openModal());
-      }
+            const roleName = getRoleName(res.user.role_id);
+            dispatch(setRole(roleName));
+            navigate(`/dashboard/${roleName.trim().toLowerCase()}`);
+          } else {
+            toast.error("Sesi pengguna telah habis!, Silahkan Login kembali.");
+            dispatch(openModal());
+          }
         },
         error: (err) => err.message || "Terjadi kesalahan saat memuat...",
       });
-
     } catch (err) {
       console.error(err);
-    } 
+    }
   };
 
   return (
     <>
-      <nav className="z-[1000] flex justify-between items-center bg-[var(--indigo-dark)] p-5 fixed w-full top-0 left-0 right-0">
-        <div className="flex items-center">
+      <nav className="z-[1000] flex justify-between items-center bg-white/80 backdrop-blur-xl border-b border-white/20 shadow-lg shadow-indigo-100/20 p-5 fixed w-full top-0 left-0 right-0 transition-all duration-500 ease-out">
+        <div className="absolute inset-0 bg-gradient-to-r from-indigo-50/40 via-white/60 to-purple-50/40 backdrop-blur-xl"></div>
+        <div className="relative z-10 flex items-center">
           <object
-            className="max-w-[45px] lg:max-w-[75px] w-full h-auto object-contain"
-            data="/svg/Logo-Transparent.svg"
+            className="max-w-[45px] lg:max-w-[65px] w-full h-auto object-contain drop-shadow-sm"
+            data="/svg/NewLogoRPL.svg"
             type=""
           ></object>
           <div className="flex flex-col justify-start ml-2">
-            <p className="lg:text-base font-bold text-[var(--lavender)] text-sm">
+            <p className="lg:text-base font-bold text-[var(--blue)] text-sm drop-shadow-sm">
               Rekayasa Perangkat Lunak.
             </p>
-            <span className="text-[10px] lg:text-xs">SMKN 8 JEMBER</span>
+            <span className="text-[10px] text-gray-500 lg:text-xs">
+              SMKN 8 JEMBER
+            </span>
           </div>
         </div>
-        <ul className="hidden xl:flex list-none gap-5 items-center">
+        <ul className="relative z-10 hidden xl:flex list-none gap-8 items-center">
           {navigationPath.map((item, index) => (
             <li key={index}>
-              <HashLink className="font-bold text-[18px]" smooth to={item.link}>{item.name}</HashLink>
+              <HashLink
+                className="font-eudo-bold text-gray-600 hover:text-indigo-700 text-[18px] transition-all duration-300 ease-out hover:drop-shadow-sm relative group"
+                smooth
+                to={item.link}
+              >
+                {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 group-hover:w-full transition-all duration-300 ease-out rounded-full"></span>
+              </HashLink>
             </li>
           ))}
         </ul>
         <button
           onClick={ClickButton}
-          className="text-sm hidden xl:block lg:text-lg font-medium bg-[var(--lime)] p-2.5 lg:py-2.5 lg:px-6 cursor-pointer transition-all duration-300 ease-in-out rounded-[10px] text-[var(--indigo-dark)] hover:bg-[var(--lavender)]"
+          className="relative z-10 group text-sm hidden xl:block lg:text-sm font-medium bg-gradient-to-r from-indigo-600 to-purple-600 p-2.5 lg:py-4 lg:px-8 cursor-pointer transition-all duration-500 ease-out rounded-[16px] text-white shadow-lg shadow-indigo-500/30 backdrop-blur-sm border border-white/20 overflow-hidden"
         >
-          {isAuth ? "Masuk ke Dashboard" : "Login Ke Aplikasi RPL"}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+          <span className="relative z-10">
+            {isAuth ? "Masuk ke Dashboard" : "Login Ke Aplikasi RPL"}
+          </span>
         </button>
-        <div className="xl:hidden flex items-center">
+        <div className="relative z-10 xl:hidden flex items-center">
           {open ? (
             <MdClose
-              className="text-3xl cursor-pointer text-[var(--white)]"
+              className="text-3xl cursor-pointer text-gray-700 hover:text-indigo-700 transition-all duration-300 ease-out"
               onClick={() => setOpen((prev) => !prev)}
             />
           ) : (
             <IoMenu
-              className="text-3xl cursor-pointer text-[var(--white)]"
+              className="text-3xl cursor-pointer text-gray-700 hover:text-indigo-700 transition-all duration-300 ease-out"
               onClick={() => setOpen((prev) => !prev)}
             />
           )}
         </div>
       </nav>
+
+      {/* Enhanced Mobile Menu */}
       <div
-        className={`fixed h-screen inset-0 bg-[var(--indigo-dark)] z-[100] transform transition-all duration-300 ease-linear xl:hidden ${
+        className={`fixed h-screen inset-0 bg-white/90 backdrop-blur-2xl z-[100] transform transition-all duration-500 ease-out xl:hidden border-r border-white/20 ${
           open
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-full pointer-events-none"
         }`}
       >
-        <ul className="flex flex-col text-center gap-6 p-6 mt-28 text-[var(--white)]">
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/60 to-purple-50/60"></div>
+        
+        <ul className="relative z-10 flex flex-col text-center gap-8 p-6 mt-32 text-gray-700">
           {navigationPath.map((item, index) => (
-            <li key={index}>
-              <HashLink className="font-bold text-[18px]" smooth to={item.link}>{item.name}</HashLink>
+            <li key={index} className="transform transition-all duration-300 ease-out">
+              <HashLink
+                className="font-eudo-bold text-[18px] hover:text-indigo-700 transition-all duration-300 ease-out"
+                smooth
+                to={item.link}
+                onClick={() => setOpen(false)}
+              >
+                {item.name}
+              </HashLink>
             </li>
           ))}
-          <li>
+          <li className="mt-6">
             <button
-              className="max-w-sm text-center text-sm font-medium bg-[var(--lime)] p-2.5 rounded-[10px] text-[var(--indigo-dark)] hover:bg-[var(--lavender)]"
+              className="group max-w-sm text-center text-white text-xs font-medium p-4 rounded-[16px] bg-gradient-to-r from-indigo-600 to-purple-600 shadow-lg shadow-indigo-500/30 hover:shadow-xl hover:shadow-indigo-500/40 transition-all duration-500 ease-out backdrop-blur-sm border border-white/20 overflow-hidden"
               onClick={ClickButton}
             >
-              {isAuth ? "Masuk ke Dashboard" : "Login Ke Aplikasi RPL"}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+              <span className="relative z-10">
+                {isAuth ? "Masuk ke Dashboard" : "Login Ke Aplikasi RPL"}
+              </span>
             </button>
           </li>
         </ul>

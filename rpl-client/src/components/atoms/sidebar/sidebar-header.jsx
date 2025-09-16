@@ -6,7 +6,7 @@ const SidebarHeader = ({ eventClick, classnames }) => {
     <div className={`flex items-center flex-shrink-0 ${classnames}`}>
       <object
         className="max-w-[50px] w-full h-auto object-contain"
-        data="/svg/Logo-Transparent.svg"
+        data="/svg/NewLogoRPL.svg"
         type=""
       />
       <div className="flex flex-col justify-start">
@@ -20,7 +20,7 @@ const SidebarHeader = ({ eventClick, classnames }) => {
       <X
         onClick={eventClick}
         size={20}
-        className="absolute xl:hidden block top-5 right-5 text-[var(--lime)] cursor-pointer"
+        className="absolute xl:hidden block top-5 right-5 text-[var(--blue)] cursor-pointer"
       />
     </div>
   );
