@@ -22,8 +22,8 @@ return Application::configure(basePath: dirname(__DIR__))
         // Disable CSRF untuk API routes tertentu
         $middleware->validateCsrfTokens(except: [
             'api/login',
-            'api/register',
-            'api/*',
+            'api/logout',
+            // 'api/*',
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

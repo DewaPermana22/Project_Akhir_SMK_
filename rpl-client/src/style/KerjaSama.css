@@ -17,6 +17,7 @@
   margin: 0 30px;
 }
 .logo-wrapp img:nth-child(4),
+.logo-wrapp img:nth-child(2),
 .logo-wrapp img:first-child {
   max-width: 90px;
 }
@@ -35,6 +36,7 @@
     margin: 0 10px;
   }
   .logo-wrapp img:nth-child(4),
+  .logo-wrapp img:nth-child(2),
   .logo-wrapp img:first-child {
     max-width: 50px;
   }

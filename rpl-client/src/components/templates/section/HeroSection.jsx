@@ -1,3 +1,5 @@
+import { HashLink } from "react-router-hash-link";
+
 const HeroSection = () => {
   return (
     <>
@@ -42,10 +44,10 @@ const HeroSection = () => {
             hingga sistem kompleks, kami mengembangkan keterampilan dan inovasi
             siswa melalui proyek nyata.
           </p>
-          <button className="group relative linear-purple cursor-pointer text-white font-medium font-eudoxsussans-medium text-[15px] md:text-[18px] px-5 py-4 md:py-5 max-w-[250px] md:max-w-[300px] rounded-[16px] transition-all duration-300 hover:scale-100 hover:shadow-2xl hover:shadow-indigo-500/30 backdrop-blur-sm border border-white/20 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 backdrop-blur-sm"></div>
+          <button className="group relative linear-purple cursor-pointer text-white font-medium font-eudoxsussans-medium text-[15px] md:text-[18px] px-5 py-4 md:py-5 max-w-[250px] md:max-w-[300px] rounded-[16px] enhanced-box-shadow transition-all duration-300 hover:scale-100 hover:shadow-2xl hover:shadow-indigo-500/30 backdrop-blur-sm border border-white/20 overflow-hidden">
+            <div className="absolute inset-0 linear-purple  backdrop-blur-sm"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-            <span className="relative z-10">Bergabung bersama Kami!</span>
+            <HashLink to="#ppdb" className="relative z-10">Bergabung bersama Kami!</HashLink>
             <div className="absolute inset-0 rounded-[16px] bg-gradient-to-r from-indigo-400/50 to-purple-500/50 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
           </button>
         </div>

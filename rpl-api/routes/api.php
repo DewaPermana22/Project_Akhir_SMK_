@@ -1,7 +1,4 @@
 <?php
-
-use App\Http\Controllers\ApiController;
-use App\Http\Controllers\KategoriBeritaController;
 use App\Http\Controllers\PingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;

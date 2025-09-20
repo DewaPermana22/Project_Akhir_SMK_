@@ -47,7 +47,7 @@ const LoginForm = () => {
         </label>
         <input
           disabled={loading}
-          className="rounded-xl outline-none text-base w-full text-[var(--indigo-dark)] focus:outline-0 focus:border-2 focus:border-[var(--lime)] transition-colors duration-200 font-author-medium p-3 border-1 border-[var(--gray-3)]"
+          className="rounded-xl outline-none text-base w-full text-gray-700 focus:outline-0 focus:border-2 focus:border-[var(--blue)] transition-colors duration-200 font-author-medium p-3 border-1 border-[var(--gray-3)]"
           name="email"
           placeholder="Email"
           value={formik.values.email}
@@ -65,7 +65,7 @@ const LoginForm = () => {
         <label className="text-[var(--indigo-dark)] text-sm" htmlFor="password">
           Password
         </label>
-        <div className="rounded-xl text-base w-full text-[var(--indigo-dark)] focus:outline-0 focus:border-2 focus:border-[var(--lime)] transition-colors duration-200 font-author-medium p-3 border-1 border-[var(--gray-3)] flex items-center">
+        <div className="rounded-xl text-base w-full text-gray-700 focus:outline-0 focus:border-2 focus:border-[var(--blue)] transition-colors duration-200 font-author-medium p-3 border-1 border-[var(--gray-3)] flex items-center">
           <input
             disabled={loading}
             className="bg-transparent outline-none w-full"
@@ -102,7 +102,7 @@ const LoginForm = () => {
         className={`${
           loading
             ? "bg-[var(--gray-3)] cursor-not-allowed"
-            : "bg-[var(--indigo-dark)] cursor-pointer"
+            : "linear-purple enhanced-box-shadow cursor-pointer"
         }  text-[var(--white)] font-medium font-author-medium text-[15px] md:text-[18px] px-5 py-2.5 w-full rounded-lg`}
         type="submit"
       >

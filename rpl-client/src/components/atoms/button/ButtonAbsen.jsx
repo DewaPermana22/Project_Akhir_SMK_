@@ -6,12 +6,12 @@ const ButtonAbsensi = ({ icon, text, isDisabled = false, onAbsen }) => {
       <button
         onClick={onAbsen}
         disabled={isDisabled}
-        className="bg-[var(--indigo-dark)] shadow-md hover:bg-[var(--lavender)] trasnision-colors ease-linear duration-200 cursor-pointer
-        hover:text-[var(--indigo-dark)] disabled:bg-gray-300 disabled:text-gray-700 text-[var(--lime)] p-5 rounded-lg"
+        className="bg-white  border backdrop-blur-sm shadow-md hover:bg-[var(--blue)] hover:text-white trasnision-colors ease-linear duration-200 cursor-pointer
+         disabled:bg-gray-200 disabled:text-gray-700 text-[var(--blue)] p-5 rounded-lg"
       >
         {icon}
       </button>
-      <p className="text-sm font-eudo-bold">{text}</p>
+      <p className="text-sm text-gray-700 font-eudo-bold">{text}</p>
     </div>
   );
 };

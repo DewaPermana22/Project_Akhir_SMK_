@@ -48,7 +48,7 @@ const LogoutConfirmationModal = () => {
       onClick={handleClose}
     >
       <div
-        className={`flex flex-col justify-center p-5 bg-indigo-50 border-1 border-[var(--gray-3)] rounded-xl max-w-md lg:w-full h-fit items-center transition-all duration-300 ease-in-out ${
+        className={`flex flex-col justify-center p-5 bg-white border-1 border-[var(--gray-3)] rounded-md max-w-md lg:w-full h-fit items-center transition-all duration-300 ease-in-out ${
           isVisible
             ? "opacity-100 scale-100 translate-y-0"
             : "opacity-0 scale-95 translate-y-4"
@@ -58,7 +58,7 @@ const LogoutConfirmationModal = () => {
         <div className="flex gap-2 items-center flex-col mb-5 relative">
           <img
             className="w-[50px] h-[50px] rounded-lg object-cover"
-            src="/svg/LogoRPL.svg"
+            src="/svg/NewLogoRPL.svg"
             alt="logobrand"
           />
           <div className="flex flex-col justify-center items-center">

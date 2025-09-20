@@ -77,3 +77,13 @@ export function formatLongWithZone(iso, useUTC = false) {
     return "Error memformat tanggal";
   }
 }
+
+export const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("id-ID", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+};

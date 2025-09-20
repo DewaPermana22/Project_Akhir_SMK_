@@ -5,7 +5,6 @@ import {
 import { Link } from "react-router";
 import HeaderDashboardPages from "@/components/atoms/header-dashboard-pages";
 import Table from "@/components/moleculs/Table";
-import EmptyStateTable from "@/components/atoms/EmptyStateTable";
 import { ColumnTableManajemenBerita } from "@/components/atoms/tables/column-table-manajemen-berita";
 import SearchInput from "@/components/atoms/SearchInput";
 import SelectDropdown from "@/components/atoms/SelectDropdown";
@@ -13,6 +12,7 @@ import useBeritaSaya from "@/hooks/useBeritaSaya";
 import WrapperLayout from "../../WrapperLayout";
 import { deleteBerita } from "@/api/services/BeritaService";
 import ConfirmationDeleteModal from "@/components/moleculs/ConfDeleteModal";
+import EmptyNewsStateTable from "@/components/templates/empty-state/empty-news-table";
 
 const ManajemenBerita = () => {
   const {
@@ -118,7 +118,7 @@ const ManajemenBerita = () => {
             onPageChange={handlePageChange}
             showPagination={true}
             columns={ManajemenBeritaCols}
-            emptyMessage={<EmptyStateTable />}
+            emptyMessage={<EmptyNewsStateTable />}
           />
         </div>
       </div>

@@ -1,5 +1,6 @@
 export const mappMenu  = {
     "dashboard-siswa" : "/dashboard/siswa",
+    "pengumuman-siswa" : "/dashboard/siswa/pengumuman",
 
 
     // ROLE : GURU

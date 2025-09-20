@@ -4,11 +4,11 @@ import { dataAlumni } from "@/constants/alumni-data";
 
 const AlumniSection = () => {
   return (
-    <section id="alumni" class="alumni-section">
-      <h1>
-        Kisah Sukses <span class="gradient-alumni">Alumni RPL</span>
+    <section id="alumni" className="alumni-section">
+      <h1 className="text-gray-600">
+        Kisah Sukses <span className="gradient-alumni">Alumni RPL</span>
       </h1>
-      <div class="slide-wrapper">
+      <div className="slide-wrapper">
         {dataAlumni.map((alumni, index) => (
           <CardAlumni props={alumni} key={index} />
         ))}

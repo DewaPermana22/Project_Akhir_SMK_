@@ -48,7 +48,7 @@ const ModalAuthentication = () => {
       onClick={handleClose}
     >
       <div
-        className={`flex flex-col justify-center p-[40px] bg-indigo-50 border-1 border-[var(--gray-3)] rounded-2xl max-w-md h-fit items-center transition-all duration-300 ease-in-out ${
+        className={`flex flex-col justify-center p-[40px] bg-white border-1 border-[var(--gray-3)] rounded-2xl max-w-md h-fit items-center transition-all duration-300 ease-in-out ${
           isVisible
             ? "opacity-100 scale-100 translate-y-0"
             : "opacity-0 scale-95 translate-y-4"
@@ -58,12 +58,12 @@ const ModalAuthentication = () => {
         <div className="flex gap-1 items-center flex-col mb-5 relative">
           <img
             className="w-[50px] h-[50px] lg:w-[75px] lg:h-[75px] rounded-lg object-cover"
-            src="/svg/LogoRPL.svg"
+            src="/svg/NewLogoRPL.svg"
             alt="logobrand"
           />
           <div className="flex flex-col justify-center items-center">
-            <p className="font-eudo-bold text-xl text-[var(--indigo-dark)]">
-              Login SIM - RPL
+            <p className="font-eudo-bold text-xl text-gray-700">
+              Login SIM-RPL
             </p>
             <p className="text-[var(--gray-3)] leading-4 text-xs">
               Masuk ke sistem untuk mengakses fitur lengkap RPL

@@ -14,6 +14,7 @@ import DetailBerita from "./pages/DetailBerita";
 import LayoutSiswa from "./components/templates/dashboard/guru/manajemen-siswa/layout";
 import DaftarKelas from "./components/templates/dashboard/guru/manajemen-siswa/DaftarKelas";
 import DaftarSiswaPerKelas from "./components/templates/dashboard/guru/manajemen-siswa/DaftarSiswaPerKelas";
+import PengumumanSiswa from "./components/templates/dashboard/siswa/PengumumanSiswa";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           }
         >
           <Route index element={<UserDashboard />} />
+          <Route path="pengumuman" element={<PengumumanSiswa />} />
         </Route>
 
         <Route path="/dashboard/guru" element={<Dashboard />}>

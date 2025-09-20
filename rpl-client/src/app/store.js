@@ -10,6 +10,7 @@ import modalConfirmLogoutSlice from '@/features/modals/ConfirmLogoutModalSlice';
 import ModalConfirmdeleteSlice from '@/features/modals/ConfirmDeleteModal';
 import PopUpKameraSlice from '@/features/modals/PopUpKameraSlice';
 
+
 const persist = {
   key : "config",
   storage,

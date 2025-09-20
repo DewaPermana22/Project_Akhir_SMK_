@@ -43,7 +43,7 @@ const AbsensiSiswa = () => {
   }, [handleStartAbsen])
 
   return (
-    <main className='p-10 mt-5 w-full'>
+    <main className='p-10 w-full'>
       <div className='flex justify-center items-center gap-5'>
         {/* SALAH: onAbsen={handleStartAbsen("masuk")} - ini langsung dipanggil */}
         {/* BENAR: onAbsen={handleAbsenMasuk} - ini sebagai callback */}

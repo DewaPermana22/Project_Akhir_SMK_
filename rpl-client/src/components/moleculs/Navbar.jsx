@@ -63,7 +63,7 @@ const Navbar = () => {
             type=""
           ></object>
           <div className="flex flex-col justify-start ml-2">
-            <p className="lg:text-base font-bold text-[var(--blue)] text-sm drop-shadow-sm">
+            <p className="lg:text-base font-eudo-bold text-[var(--blue)] text-sm drop-shadow-lg">
               Rekayasa Perangkat Lunak.
             </p>
             <span className="text-[10px] text-gray-500 lg:text-xs">
@@ -87,7 +87,7 @@ const Navbar = () => {
         </ul>
         <button
           onClick={ClickButton}
-          className="relative z-10 group text-sm hidden xl:block lg:text-sm font-medium bg-gradient-to-r from-indigo-600 to-purple-600 p-2.5 lg:py-4 lg:px-8 cursor-pointer transition-all duration-500 ease-out rounded-[16px] text-white shadow-lg shadow-indigo-500/30 backdrop-blur-sm border border-white/20 overflow-hidden"
+          className="relative z-10 group text-sm hidden xl:block lg:text-sm font-medium linear-purple p-2.5 lg:py-4 lg:px-8 cursor-pointer transition-all duration-500 ease-out rounded-[16px] text-white shadow-lg shadow-indigo-500/30 backdrop-blur-sm border border-white/20 overflow-hidden"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
           <span className="relative z-10">

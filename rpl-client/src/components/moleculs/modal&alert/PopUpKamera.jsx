@@ -222,11 +222,11 @@ const PopUpKamera = ({ isOpen, onClose, onCapture, absenType = "masuk" }) => {
     <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle className="flex items-center gap-2">
+          <DialogTitle className="flex text-gray-600 items-center gap-2">
             <Camera className="h-5 w-5" />
             Foto Absensi {absenType === "masuk" ? "Masuk" : "Pulang"}
           </DialogTitle>
-          <DialogDescription>
+          <DialogDescription className="text-indigo-700">
             Ambil foto untuk melakukan absensi{" "}
             {absenType === "masuk" ? "masuk" : "pulang"}
           </DialogDescription>
@@ -308,7 +308,7 @@ const PopUpKamera = ({ isOpen, onClose, onCapture, absenType = "masuk" }) => {
             )}
 
             {!isStreamActive && !capturedImage && !isLoading && (
-              <Button onClick={startCamera} className="flex items-center gap-2">
+              <Button onClick={startCamera} className="flex  cursor-pointer bg-[var(--blue)] hover:bg-indigo-700 items-center gap-2">
                 <Camera className="h-4 w-4" />
                 Mulai Kamera
               </Button>
@@ -319,14 +319,14 @@ const PopUpKamera = ({ isOpen, onClose, onCapture, absenType = "masuk" }) => {
                 <Button
                   variant="outline"
                   onClick={stopCamera}
-                  className="flex items-center gap-2"
+                  className="flex cursor-pointer items-center gap-2"
                 >
                   <X className="h-4 w-4" />
                   Batal
                 </Button>
                 <Button
                   onClick={capturePhoto}
-                  className="flex items-center gap-2"
+                  className="flex bg-[var(--blue)] hover:bg-indigo-700 cursor-pointer items-center gap-2"
                 >
                   <Camera className="h-4 w-4" />
                   Ambil Foto

@@ -5,6 +5,7 @@ import * as LucideIcons from "lucide-react";
 import { toggleSection } from '@/features/ActiveMenu';
 import SidebarFooter from "../atoms/sidebar/sidebar-footer";
 import SidebarHeader from "../atoms/sidebar/sidebar-header";
+import LogoutConfirmationModal from "./modal&alert/LogoutConfirmationModal";
 
 const Sidebar = ({ isOpen, onClose, onMenuClick }) => {
   const dispatch = useDispatch();
@@ -105,6 +106,7 @@ const Sidebar = ({ isOpen, onClose, onMenuClick }) => {
           <SidebarFooter/>
         </div>
       </aside>
+      <LogoutConfirmationModal/>
     </>
   );
 };

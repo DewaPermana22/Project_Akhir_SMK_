@@ -44,6 +44,25 @@ export const getMyBerita = async (
   }
 };
 
+export const getAllBerita = async (
+  pages = 1,
+  per_pages = 20,
+  query_search = ""
+) => {
+  try {
+    const params = new URLSearchParams({
+      page: pages,
+      per_page: per_pages,
+      ...(query_search && { search: query_search }),
+    });
+    const res = await axiosInstance.get(`/news/all?${params}`)
+    return res.data
+  } catch (error) {
+    console.error("Error when get all news!", error.response?.data)
+    throw error
+  }
+}
+
 export const deleteBerita = async (id) => {
   try {
     const res = await axiosInstance.delete(`/news/delete/${id}`);
@@ -70,7 +89,8 @@ export const updateBerita = async (id, data) => {
 export const getBeritaById = async (id) => {
   try {
     const res = await axiosInstance.get(`/news/detail/${id}`);
-    return res.data.message;
+    console.log(res)
+    return res.data;
   } catch (error) {
     console.error(error)
   }
@@ -79,7 +99,7 @@ export const getBeritaById = async (id) => {
 export const getBeritaTerbaru = async () => {
   try {
     const res = await axiosInstance.get("/news/latest");
-    return res.data.message;
+    return res.data
   } catch (error) {
     console.error(error)
   }

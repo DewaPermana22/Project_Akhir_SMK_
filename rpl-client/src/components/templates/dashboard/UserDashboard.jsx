@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { getTodayDate } from "../../../app/utils/get-today";
 import CardDashboard from "../../moleculs/CardDashboard";
 import QuickAccessCards from "../../moleculs/QuickAcsessCard";
+import WrapperLayout from "./WrapperLayout";
 
 const UserDashboard = () => {
   const quickAccess = [
@@ -64,16 +65,16 @@ const UserDashboard = () => {
   };
   const { user } = useSelector((state) => state.user);
   return (
-    <div>
+    <WrapperLayout>
       <div className="flex flex-col xl:flex-row justify-around gap-2 xl:gap-5">
         <div className="flex xl:hidden justify-between p-4">
           <h1 className="text-xl font-eudo-bold">Dashboard</h1>
           <div className="flex items-center gap-3">
-            <span className="text-xs text-[var(--indigo-dark)] bg-[rgba(201,250,117,0.95)] px-2.5 py-1 rounded-lg font-eudoxsussans-regular max-w-fit">
+            <span className="text-xs text-indigo-600 bg-indigo-100  px-2.5 py-1 rounded-lg font-eudoxsussans-regular max-w-fit">
               {user.role}
             </span>{" "}
             /
-            <span className="text-xs text-[var(--indigo-dark)] bg-[rgba(201,250,117,0.95)] px-2.5 py-1 rounded-lg font-eudoxsussans-regular max-w-fit">
+            <span className="text-xs text-indigo-600 bg-indigo-100  px-2.5 py-1 rounded-lg font-eudoxsussans-regular max-w-fit">
               {getTodayDate()}
             </span>
           </div>
@@ -103,7 +104,7 @@ const UserDashboard = () => {
           }}
         />
       </div>
-    </div>
+    </WrapperLayout>
   );
 };
 
