@@ -5,50 +5,73 @@ import { HashLink } from "react-router-hash-link";
 import ModalAuthentication from "../moleculs/ModalAuthentication";
 import { useDispatch, useSelector } from "react-redux";
 import { openModal } from "../../features/modals/ModalSlice";
-import { getUserAuth } from "../../api/services/LoginService";
 import { useNavigate } from "react-router";
 import { setUser } from "../../features/UserSlice";
 import { setRole } from "../../features/ActiveMenu";
 import toast from "react-hot-toast";
 import { navigationPath } from "@/app/navigation";
 import { getRoleName, getStatus } from "@/app/utils/get-name";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
+  const { user, isAuthenticated, refreshUser } = useAuth();
   const isAuth = useSelector((state) => state.user.isAuth);
 
   useEffect(() => {}, [isAuth]);
 
   const ClickButton = async () => {
     try {
-      toast.promise(getUserAuth(), {
-        loading: "Sedang memuat data pengguna...",
-        success: (res) => {
-          if (res.authenticated) {
-            toast.success("Berhasil memuat data pengguna!");
+      if (isAuthenticated && user) {
+        dispatch(
+          setUser({
+            name: user.name,
+            email: user.email,
+            role: getRoleName(user.role_id),
+            status: getStatus(user.status_id),
+          })
+        );
+
+        const roleName = getRoleName(user.role_id);
+        dispatch(setRole(roleName));
+        navigate(`/dashboard/${roleName.trim().toLowerCase()}`);
+        return;
+      }
+
+      const refreshPromise = refreshUser();
+      toast.promise(refreshPromise, {
+        loading: "Memeriksa sesi pengguna...",
+        success: (result) => {
+          if (result.authenticated) {
             dispatch(
               setUser({
-                name: res.user.name,
-                email: res.user.email,
-                role: getRoleName(res.user.role_id),
-                status: getStatus(res.user.status_id),
+                name: result.user.name,
+                email: result.user.email,
+                role: getRoleName(result.user.role_id),
+                status: getStatus(result.user.status_id),
               })
             );
 
-            const roleName = getRoleName(res.user.role_id);
+            const roleName = getRoleName(result.user.role_id);
             dispatch(setRole(roleName));
             navigate(`/dashboard/${roleName.trim().toLowerCase()}`);
+            
+            return "Berhasil masuk ke dashboard!";
           } else {
-            toast.error("Sesi pengguna telah habis!, Silahkan Login kembali.");
             dispatch(openModal());
+            throw new Error("Sesi telah berakhir, Silahkan login terlebih dahulu!");
           }
         },
-        error: (err) => err.message || "Terjadi kesalahan saat memuat...",
+        error: (err) => {
+          dispatch(openModal());
+          return err.message || "Silahkan login untuk melanjutkan";
+        },
       });
     } catch (err) {
       console.error(err);
+      dispatch(openModal());
     }
   };
 
@@ -91,7 +114,7 @@ const Navbar = () => {
         >
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
           <span className="relative z-10">
-            {isAuth ? "Masuk ke Dashboard" : "Login Ke Aplikasi RPL"}
+            {isAuthenticated ? "Masuk ke Dashboard" : "Login Ke Aplikasi RPL"}
           </span>
         </button>
         <div className="relative z-10 xl:hidden flex items-center">
@@ -139,7 +162,7 @@ const Navbar = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
               <span className="relative z-10">
-                {isAuth ? "Masuk ke Dashboard" : "Login Ke Aplikasi RPL"}
+                {isAuthenticated ? "Masuk ke Dashboard" : "Login Ke Aplikasi RPL"}
               </span>
             </button>
           </li>

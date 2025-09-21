@@ -1,4 +1,5 @@
-import { axiosInstance } from "../AxiosInstance";
+import axiosInstance from "../AxiosInstance";
+
 
 export const getUserById = async (userId) => {
   try {

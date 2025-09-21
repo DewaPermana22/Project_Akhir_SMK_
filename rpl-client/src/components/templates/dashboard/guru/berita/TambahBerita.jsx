@@ -1,10 +1,11 @@
 
 import { useParams } from "react-router";
-import BodyUploadBerita from "../../../../moleculs/BodyUploadBerita";
+import BodyUploadBerita from "../../../../moleculs/uploader/BodyUploadBerita";
 import { useRef, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import WrapperLayout from "../../WrapperLayout";
-import ActionButton from "@/components/moleculs/upload-berita/action-button";
+import ActionButton from "@/components/atoms/button/action-button";
+import HeaderDashboardPages from "@/components/atoms/header-dashboard-pages";
 
 const TambahBerita = () => {
   const showToast = () => toast.success("Berita berhasil diunggah!");
@@ -42,17 +43,11 @@ const TambahBerita = () => {
     <WrapperLayout>
       <div className="space-y-2">
         <div className="flex-col flex lg:space-y-0 space-y-5 lg:flex-row items-center justify-between">
-          <div className="w-full">
-            <h1 className="text-gray-600 text-xl font-eudo-bold">
-              {id ? "Edit Berita" : "Unggah Berita Baru"}
-            </h1>
-            <p className="text-indigo-600 text-xs lg:text-sm">
-              {id
-                ? "Ubah informasi berita dengan mengedit berita ini."
-                : "Mulai bagikan informasi terbaru dengan menambahkan berita baru disini."}
-            </p>
-          </div>
-
+          <HeaderDashboardPages mainHeader={id ? "Edit Berita" : "Unggah Berita Baru"} descriptionText={
+            id
+            ? "Ubah informasi berita dengan mengedit berita ini."
+            : "Mulai bagikan informasi terbaru dengan menambahkan berita baru disini."
+          }/>
           <ActionButton
             isSubmitting={isSubmitting}
             canSubmit={canSubmit}

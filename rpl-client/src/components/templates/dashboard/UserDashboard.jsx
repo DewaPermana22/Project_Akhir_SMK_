@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { useSelector } from "react-redux";
 import { getTodayDate } from "../../../app/utils/get-today";
-import CardDashboard from "../../moleculs/CardDashboard";
+import CardDashboard from "../../atoms/card/CardDashboard";
 import QuickAccessCards from "../../moleculs/QuickAcsessCard";
 import WrapperLayout from "./WrapperLayout";
 

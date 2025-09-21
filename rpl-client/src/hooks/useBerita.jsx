@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
-import { getAllBerita, getBeritaTerbaru } from "../api/services/BeritaService";
+import { useApi } from "./auth/useApi";
 
 const useBerita = ({ searchQuery = "" } = {}) => {
+  const { callApi } = useApi();
   const [newsLatest, setNewsLatest] = useState([]);
   const [newsData, setNewsData] = useState([]);
   const [allNewsLoading, setAllNewsLoading] = useState(false);
@@ -15,39 +16,47 @@ const useBerita = ({ searchQuery = "" } = {}) => {
     total: 0,
   });
 
-  // useCallback untuk menghindari recreating function
-  const fetchSemuaBerita = useCallback(async (page = 1, perPage = 20, search = '') => {
-    setAllNewsLoading(true);
-    setError(null); 
-    try {
-      const response = await getAllBerita(page, perPage, search);
-      console.log('API Response:', response);
-      
-      if (response.success) { 
-        setNewsData(response.data || []);
-        setPagination({
-          currentPage: response.pagination?.current_page,
-          lastPage: response.pagination?.total_pages,
-          perPage: response.pagination?.per_page,
-          total: response.pagination?.total
-        });
-      } else {
-        setError(response?.message || 'Gagal mengambil data berita');
+  const fetchSemuaBerita = useCallback(
+    async (page = 1, perPage = 20, search = "") => {
+      setAllNewsLoading(true);
+      setError(null);
+      const params = new URLSearchParams({
+        page: page,
+        per_page: perPage,
+        ...(search && { search: search }),
+      });
+      try {
+        const response = await callApi("GET", `/api/news/all?${params}`);
+
+        if (response.success) {
+          setNewsData(response.data || []);
+          setPagination({
+            currentPage: response.pagination?.current_page,
+            lastPage: response.pagination?.total_pages,
+            perPage: response.pagination?.per_page,
+            total: response.pagination?.total,
+          });
+        } else {
+          setError(response?.message || "Gagal mengambil data berita");
+          setNewsData([]);
+        }
+      } catch (error) {
+        console.error("Error in hook get All Berita", error);
+        setError(
+          error.response?.data?.message || error.message || "Terjadi kesalahan"
+        );
         setNewsData([]);
+      } finally {
+        setAllNewsLoading(false);
       }
-    } catch (error) {
-      console.error("Error in hook get All Berita", error);
-      setError(error.response?.data?.message || error.message || 'Terjadi kesalahan');
-      setNewsData([]);
-    } finally {
-      setAllNewsLoading(false);
-    }
-  }, []);
+    },
+    []
+  );
 
   const fetchBeritaTerbaru = useCallback(async () => {
     setLatestNewsLoading(true);
     try {
-      const response = await getBeritaTerbaru();
+      const response = await callApi("GET", "api/news/latest");
       if (response.success) {
         setNewsLatest(response.data);
       } else {
@@ -55,7 +64,9 @@ const useBerita = ({ searchQuery = "" } = {}) => {
       }
     } catch (error) {
       console.error("Error fetching latest news:", error);
-      setError(error.response?.data?.message || error.message || "Terjadi kesalahan");
+      setError(
+        error.response?.data?.message || error.message || "Terjadi kesalahan"
+      );
     } finally {
       setLatestNewsLoading(false);
     }

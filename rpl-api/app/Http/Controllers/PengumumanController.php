@@ -8,6 +8,8 @@ use App\Models\Pengumuman;
 use App\Models\KategoriPengumuman;
 use App\Http\Resources\PengumumanResource;
 use App\Http\Resources\KategoriPengumumanResource;
+use App\Models\PengumumanKelas;
+use Illuminate\Support\Facades\DB;
 
 class PengumumanController extends Controller
 {
@@ -113,30 +115,41 @@ class PengumumanController extends Controller
             ], 401);
         }
 
+        DB::beginTransaction();
+
         try {
             $validated = $request->validate([
                 'judul_pengumuman' => 'required|string|max:255',
                 'kategori_id' => 'required|exists:kategori_pengumuman,id',
                 'isi_pengumuman' => 'required|string',
-                'prioritas' => 'nullable|in:tinggi,sedang,rendah',
-                'pinned' => 'nullable|boolean'
+                'kelas_id' => 'required|array',
+                'kelas_id.*' => 'exists:kelas,id',
             ]);
 
             $pengumuman = Pengumuman::create([
                 'judul_pengumuman' => $validated['judul_pengumuman'],
                 'kategori_id' => $validated['kategori_id'],
                 'isi_pengumuman' => $validated['isi_pengumuman'],
-                'prioritas' => $validated['prioritas'] ?? 'sedang',
-                'pinned' => $validated['pinned'] ?? false,
                 'user_id' => $user->id
             ]);
+
+            // Insert multiple kelas
+            foreach ($validated['kelas_id'] as $kelasId) {
+                PengumumanKelas::create([
+                    'pengumuman_id' => $pengumuman->id,
+                    'kelas_id' => $kelasId
+                ]);
+            }
+
+            DB::commit();
 
             return response()->json([
                 'success' => true,
                 'message' => 'Pengumuman berhasil dibuat',
-                'data' => new PengumumanResource($pengumuman->load(['kategori_pengumuman', 'user']))
+                'data' => new PengumumanResource($pengumuman->load(['kategori_pengumuman', 'user', 'kelas']))
             ], 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
+            DB::rollBack();
             return response()->json([
                 'success' => false,
                 'message' => 'Validasi gagal',
@@ -144,6 +157,7 @@ class PengumumanController extends Controller
                 'data' => []
             ], 422);
         } catch (\Exception $e) {
+            DB::rollBack();
             return response()->json([
                 'success' => false,
                 'message' => 'Terjadi kesalahan server: ' . $e->getMessage(),

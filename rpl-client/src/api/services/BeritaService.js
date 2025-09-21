@@ -1,4 +1,5 @@
-import { axiosInstance } from "../AxiosInstance";
+import axiosInstance from "../AxiosInstance";
+
 
 export const getKategoriBerita = async () => {
   try {
@@ -37,7 +38,7 @@ export const getMyBerita = async (
     });
 
     const res = await axiosInstance.get(`/news/my-news?${params}`);
-    return res.data.message;
+    return res.data;
   } catch (error) {
     console.error("error mengambil berita saya", error.response?.data);
     throw error;

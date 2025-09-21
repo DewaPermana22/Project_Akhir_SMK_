@@ -1,12 +1,14 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import { logout } from "@/api/services/LoginService";
+
 import { clearUser } from "@/features/UserSlice";
 import { closeModalConfirmLogout } from "@/features/modals/ConfirmLogoutModalSlice";
+import { useAuth } from "@/contexts/AuthContext";
 
 export function useLogout() {
   const dispatch = useDispatch();
+  const {logout} = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {

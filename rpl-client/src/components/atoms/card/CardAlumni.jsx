@@ -1,21 +1,21 @@
 const CardAlumni = ({props}) => {
   return (
     <div>
-      <div class="card-alumni-slide">
-        <div class="header-card-alumni">
+      <div className="card-alumni-slide">
+        <div className="header-card-alumni">
           <h2>{props.bidang}</h2>
         </div>
-        <div class="body-card-alumni">
+        <div className="body-card-alumni">
           <span>{props.cerita}</span>
         </div>
-        <div class="footer-card-alumni">
-          <div class="alumni-nama">
+        <div className="footer-card-alumni">
+          <div className="alumni-nama">
             <p>{props.nama}</p>
         </div>
-          <div class="alumni-jabatan">{props.angkatan}</div>
+          <div className="alumni-jabatan">{props.angkatan}</div>
         </div>
       </div>
-      <div class="absolute-line"></div>
+      <div className="absolute-line"></div>
     </div>
   );
 };

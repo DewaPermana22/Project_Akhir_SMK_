@@ -42,6 +42,7 @@ const usePengumuman = () => {
       setLoadingKategori(true);
       setErrors(null);
       const response = await fetchKategoriPengumuman();
+      console.log(response)
       if (response.success) {
         setKategoriPengumuman(response.data);
       }
@@ -90,12 +91,12 @@ const usePengumuman = () => {
     };
 
     loadData();
-  }, [getKategoriPengumuman, filterKategori]);
+  }, [getKategoriPengumuman, getPengumuman, filterKategori]);
 
   return {
     kategoriPengumuman: getFormattedKategori(),
     getCategoryColor,
-    kategoriPengumuman,
+    arrayKategoriPengumuman : kategoriPengumuman,
     Pengumuman,
     LoadingKategori,
   };

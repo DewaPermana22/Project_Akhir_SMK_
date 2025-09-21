@@ -7,4 +7,5 @@ export const mappMenu  = {
     "dashboard-guru" : "/dashboard/guru",
     "berita-guru" : "/dashboard/guru/berita",
     "data-siswa" : "/dashboard/guru/data-siswa",
+    "pengumuman-guru" : "/dashboard/guru/pengumuman",
 }

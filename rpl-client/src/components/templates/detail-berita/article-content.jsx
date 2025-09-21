@@ -31,7 +31,7 @@ const ArticleContent = ({ detailBerita }) => {
           [&>h2]:text-2xl [&>h2]:font-semibold [&>h2]:text-gray-800 [&>h2]:mb-4 [&>h2]:mt-6 [&>h2]:border-l-4 [&>h2]:border-indigo-400 [&>h2]:pl-4
           [&>h3]:text-xl [&>h3]:font-semibold [&>h3]:text-gray-800 [&>h3]:mb-3 [&>h3]:mt-5
           [&>p]:text-gray-700 [&>p]:leading-relaxed [&>p]:mb-4 [&>p]:text-justify
-          [&>blockquote]:border-l-4 [&>blockquote]:border-indigo-500 [&>blockquote]:pl-6 [&>blockquote]:italic [&>blockquote]:text-gray-600 [&>blockquote]:bg-gradient-to-r [&>blockquote]:from-indigo-50 [&>blockquote]:to-purple-50 [&>blockquote]:py-4 [&>blockquote]:rounded-r-sm [&>blockquote]:my-6 [&>blockquote]:backdrop-blur-sm [&>blockquote]:border-r [&>blockquote]:border-t [&>blockquote]:border-b [&>blockquote]:border-indigo-200/50
+          [&>blockquote]:border-l-4 [&>blockquote]:border-indigo-600 [&>blockquote]:pl-6 [&>blockquote]:italic [&>blockquote]:text-gray-600 [&>blockquote]:bg-gradient-to-r [&>blockquote]:from-indigo-50 [&>blockquote]:to-purple-50 [&>blockquote]:py-4 [&>blockquote]:rounded-r-sm [&>blockquote]:my-6 [&>blockquote]:backdrop-blur-sm [&>blockquote]:border-r [&>blockquote]:border-t [&>blockquote]:border-b 
           [&>ul]:space-y-2 [&>ol]:space-y-2 [&>li]:text-gray-700
           [&>img]:rounded-2xl [&>img]:shadow-xl [&>img]:my-8 [&>img]:border [&>img]:border-white/30
           [&>a]:text-indigo-600 [&>a]:hover:text-indigo-700 [&>a]:transition-colors [&>a]:duration-200 [&>a]:font-medium

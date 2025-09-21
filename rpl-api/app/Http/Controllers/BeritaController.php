@@ -247,7 +247,7 @@ class BeritaController extends Controller
                 $query->where(function ($q) use ($search) {
                     $q->whereRaw('LOWER(judul) LIKE ?', ['%' . strtolower($search) . '%'])
                         ->orWhereHas('kategori', function ($q) use ($search) {
-                            $q->whereRaw('LOWER(nama_kategori) LIKE ?', ['%' . strtolower($search) . '%']);
+                            $q->whereRaw('LOWER(kategori) LIKE ?', ['%' . strtolower($search) . '%']);
                         });
                 });
             }
@@ -255,7 +255,10 @@ class BeritaController extends Controller
             $berita = $query->orderBy('created_at', 'desc')
                 ->paginate($perPage, ['*'], 'page', $page);
 
-            return new BeritaCollection($berita);
+                return response()->json([
+                    'success' => true,
+                    'data' => new BeritaCollection($berita),
+                ]);
         } catch (\Throwable $th) {
             Log::error('Error getMyBerita: ' . $th->getMessage());
             return response()->json([

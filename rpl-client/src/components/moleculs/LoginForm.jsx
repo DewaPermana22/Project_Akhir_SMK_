@@ -8,13 +8,15 @@ import {
 } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import toast from "react-hot-toast";
-import { login } from "@/api/services/LoginService";
 import { closeModal } from "@/features/modals/ModalSlice";
+import { useAuth } from "@/contexts/AuthContext";
 
 const LoginForm = () => {
+  const { login } = useAuth();
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+
   const formik = useFormik({
     initialValues: { email: "", password: "" },
     validationSchema: Yup.object({
@@ -26,19 +28,41 @@ const LoginForm = () => {
     onSubmit: async (values) => {
       try {
         setLoading(true);
+
+        // Debug log
+        console.log("Attempting login with:", values);
+
         await login(values);
         dispatch(closeModal());
         toast.success("Login berhasil!");
       } catch (error) {
-        console.error("Login error:", error.response?.data || error.message);
-        toast.error("Login gagal!, Silahkan Coba Lagi.");
-      } finally{
+        // Debug log untuk melihat error detail
+        console.error("Login error details:", {
+          status: error.response?.status,
+          statusText: error.response?.statusText,
+          data: error.response?.data,
+          headers: error.response?.headers,
+          message: error.message,
+        });
+
+        // Handle specific error codes
+        if (error.response?.status === 419) {
+          toast.error(
+            "CSRF Token expired. Silahkan refresh halaman dan coba lagi."
+          );
+        } else if (error.response?.status === 401) {
+          toast.error("Email atau password salah!");
+        } else if (error.response?.status === 422) {
+          toast.error("Data tidak valid!");
+        } else {
+          toast.error("Login gagal! Silahkan coba lagi.");
+        }
+      } finally {
         setLoading(false);
       }
     },
   });
 
- 
   return (
     <form className="w-full flex flex-col gap-3" onSubmit={formik.handleSubmit}>
       <div className="flex flex-col w-full justify-start">
@@ -103,7 +127,7 @@ const LoginForm = () => {
           loading
             ? "bg-[var(--gray-3)] cursor-not-allowed"
             : "linear-purple enhanced-box-shadow cursor-pointer"
-        }  text-[var(--white)] font-medium font-author-medium text-[15px] md:text-[18px] px-5 py-2.5 w-full rounded-lg`}
+        } text-[var(--white)] font-medium font-author-medium text-[15px] md:text-[18px] px-5 py-2.5 w-full rounded-lg`}
         type="submit"
       >
         {loading ? (

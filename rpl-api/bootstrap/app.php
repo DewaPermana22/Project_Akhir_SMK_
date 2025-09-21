@@ -13,17 +13,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        $middleware->api([
+        $middleware->appendToGroup('api', [
             \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        ]);
-        
-        // Disable CSRF untuk API routes tertentu
-        $middleware->validateCsrfTokens(except: [
-            'api/login',
-            'api/logout',
-            // 'api/*',
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

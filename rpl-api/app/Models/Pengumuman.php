@@ -18,4 +18,9 @@ class Pengumuman extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function kelas()
+    {
+        return $this->belongsToMany(Kelas::class, 'pengumuman_kelas');
+    }
 }

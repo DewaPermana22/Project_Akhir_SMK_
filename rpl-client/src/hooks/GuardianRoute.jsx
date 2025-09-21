@@ -1,12 +1,21 @@
-import { useSelector } from 'react-redux'
-import { Navigate } from 'react-router';
-const GuardianRoute = ({children, allowedRoles}) => {
-    const {user, isAuth} = useSelector((state) => state.user);
-    if (!isAuth) return <Navigate to="/" replace/>
-    if (children && !allowedRoles.includes(user?.role)) return <Navigate to="/unauthorize" replace/>
-  return (
-    <>{children}</>
-  )
-}
+import { useAuth } from '../contexts/AuthContext';
 
-export default GuardianRoute
+const GuardianRoute = ({ children, allowedRoles }) => {
+  const { user, loading } = useAuth();
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
+
+  if (!allowedRoles.includes(user.role)) {
+    return <Navigate to="/unauthorize" replace />;
+  }
+
+  return children;
+};
+
+export default GuardianRoute;
