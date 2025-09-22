@@ -3,24 +3,56 @@
   "WorkspaceRootPath": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|d:\\project archieve\\website\\projectakhir-rplsmkdj\\sia-api-cs\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|d:\\project archieve\\website\\projectakhir-rplsmkdj\\sia-api-cs\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|d:\\project archieve\\website\\projectakhir-rplsmkdj\\sia-api-cs\\dto\\authdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|solutionrelative:dto\\authdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|d:\\project archieve\\website\\projectakhir-rplsmkdj\\sia-api-cs\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|d:\\project archieve\\website\\projectakhir-rplsmkdj\\sia-api-cs\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|d:\\project archieve\\website\\projectakhir-rplsmkdj\\sia-api-cs\\controllers\\mecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|solutionrelative:controllers\\mecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|d:\\project archieve\\website\\projectakhir-rplsmkdj\\sia-api-cs\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|d:\\project archieve\\website\\projectakhir-rplsmkdj\\sia-api-cs\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|solutionrelative:controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|d:\\project archieve\\website\\projectakhir-rplsmkdj\\sia-api-cs\\models\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|solutionrelative:models\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|d:\\project archieve\\website\\projectakhir-rplsmkdj\\sia-api-cs\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|d:\\project archieve\\website\\projectakhir-rplsmkdj\\sia-api-cs\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|solutionrelative:models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|d:\\project archieve\\website\\projectakhir-rplsmkdj\\sia-api-cs\\dto\\authentication\\refreshtokendto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|solutionrelative:dto\\authentication\\refreshtokendto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|d:\\project archieve\\website\\projectakhir-rplsmkdj\\sia-api-cs\\models\\beritum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|solutionrelative:models\\beritum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|d:\\project archieve\\website\\projectakhir-rplsmkdj\\sia-api-cs\\models\\kela.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|solutionrelative:models\\kela.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|d:\\project archieve\\website\\projectakhir-rplsmkdj\\sia-api-cs\\dto\\authentication\\authdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|solutionrelative:dto\\authentication\\authdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|d:\\project archieve\\website\\projectakhir-rplsmkdj\\sia-api-cs\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|d:\\project archieve\\website\\projectakhir-rplsmkdj\\sia-api-cs\\sia-api-cs.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
@@ -29,6 +61,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|d:\\project archieve\\website\\projectakhir-rplsmkdj\\sia-api-cs\\sia-api-cs.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|solutionrelative:sia-api-cs.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|d:\\project archieve\\website\\projectakhir-rplsmkdj\\sia-api-cs\\models\\pengumuman.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|solutionrelative:models\\pengumuman.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|d:\\project archieve\\website\\projectakhir-rplsmkdj\\sia-api-cs\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|d:\\project archieve\\website\\projectakhir-rplsmkdj\\sia-api-cs\\migrations\\20250922021936_addrefreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7100D1E4-CD5F-42DF-8A7F-D3B5FD16C443}|sia-api-cs.csproj|solutionrelative:migrations\\20250922021936_addrefreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +82,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 18,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,46 +90,179 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
-              "ToolTip": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAQwAoAAAAXAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "meController.cs",
+              "DocumentMoniker": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Controllers\\meController.cs",
+              "RelativeDocumentMoniker": "Controllers\\meController.cs",
+              "ToolTip": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Controllers\\meController.cs",
+              "RelativeToolTip": "Controllers\\meController.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA5wAwAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T13:56:21.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "newsController.cs",
+              "DocumentMoniker": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Controllers\\newsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\newsController.cs",
+              "ToolTip": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Controllers\\newsController.cs",
+              "RelativeToolTip": "Controllers\\newsController.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAADwvyMAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T07:17:20.011Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAgwAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T03:53:41.533Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Models\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Models\\AppDbContext.cs",
+              "ToolTip": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Models\\AppDbContext.cs",
+              "RelativeToolTip": "Models\\AppDbContext.cs",
+              "ViewState": "AgIAALcAAAAAAAAAAAAAwMsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T03:48:16.363Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-22T02:21:12.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Beritum.cs",
+              "DocumentMoniker": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Models\\Beritum.cs",
+              "RelativeDocumentMoniker": "Models\\Beritum.cs",
+              "ToolTip": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Models\\Beritum.cs",
+              "RelativeToolTip": "Models\\Beritum.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T02:20:56.254Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "20250922021936_AddRefreshToken.cs",
+              "DocumentMoniker": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Migrations\\20250922021936_AddRefreshToken.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250922021936_AddRefreshToken.cs",
+              "ToolTip": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Migrations\\20250922021936_AddRefreshToken.cs",
+              "RelativeToolTip": "Migrations\\20250922021936_AddRefreshToken.cs",
+              "ViewState": "AgIAAAoCAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T02:19:37.371Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Pengumuman.cs",
+              "DocumentMoniker": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Models\\Pengumuman.cs",
+              "RelativeDocumentMoniker": "Models\\Pengumuman.cs",
+              "ToolTip": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Models\\Pengumuman.cs",
+              "RelativeToolTip": "Models\\Pengumuman.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T02:09:45.707Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RefreshToken.cs",
+              "DocumentMoniker": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Models\\RefreshToken.cs",
+              "RelativeDocumentMoniker": "Models\\RefreshToken.cs",
+              "ToolTip": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Models\\RefreshToken.cs",
+              "RelativeToolTip": "Models\\RefreshToken.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAzwB8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T02:09:38.259Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Kela.cs",
+              "DocumentMoniker": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Models\\Kela.cs",
+              "RelativeDocumentMoniker": "Models\\Kela.cs",
+              "ToolTip": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Models\\Kela.cs",
+              "RelativeToolTip": "Models\\Kela.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T02:07:47.522Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-22T02:06:34.633Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RefreshTokenDTO.cs",
+              "DocumentMoniker": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\DTO\\Authentication\\RefreshTokenDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\Authentication\\RefreshTokenDTO.cs",
+              "ToolTip": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\DTO\\Authentication\\RefreshTokenDTO.cs",
+              "RelativeToolTip": "DTO\\Authentication\\RefreshTokenDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T01:59:15.026Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "authController.cs",
+              "DocumentMoniker": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Controllers\\authController.cs",
+              "RelativeDocumentMoniker": "Controllers\\authController.cs",
+              "ToolTip": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Controllers\\authController.cs",
+              "RelativeToolTip": "Controllers\\authController.cs",
+              "ViewState": "AgIAAKMAAAAAAAAAAAAgwM4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-21T15:39:26.606Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 11,
               "Title": "AuthDTO.cs",
-              "DocumentMoniker": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\DTO\\AuthDTO.cs",
-              "RelativeDocumentMoniker": "DTO\\AuthDTO.cs",
-              "ToolTip": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\DTO\\AuthDTO.cs",
-              "RelativeToolTip": "DTO\\AuthDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA8AAAAAAAAAA==",
+              "DocumentMoniker": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\DTO\\Authentication\\AuthDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\Authentication\\AuthDTO.cs",
+              "ToolTip": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\DTO\\Authentication\\AuthDTO.cs",
+              "RelativeToolTip": "DTO\\Authentication\\AuthDTO.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAYwAsAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T15:35:43.557Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-21T15:35:43.557Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Models\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Models\\AppDbContext.cs",
-              "ToolTip": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Models\\AppDbContext.cs",
-              "RelativeToolTip": "Models\\AppDbContext.cs",
-              "ViewState": "AgIAAJQAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T15:24:18.668Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 14,
               "Title": "sia-api-cs.csproj",
               "DocumentMoniker": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\sia-api-cs.csproj",
               "RelativeDocumentMoniker": "sia-api-cs.csproj",
@@ -93,12 +270,11 @@
               "RelativeToolTip": "sia-api-cs.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-09-21T15:16:00.594Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-21T15:16:00.594Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 13,
               "Title": "sia-api-cs.http",
               "DocumentMoniker": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\sia-api-cs.http",
               "RelativeDocumentMoniker": "sia-api-cs.http",
@@ -106,31 +282,29 @@
               "RelativeToolTip": "sia-api-cs.http",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-09-21T15:14:20.997Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-21T15:14:20.997Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 12,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
               "ToolTip": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-21T15:02:10.897Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-21T15:02:10.897Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\Project Archieve\\WEBSITE\\ProjectAkhir-RPLSMKDJ\\sia-api-cs\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAjwDUAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAwDAAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-21T15:02:08.142Z",
               "EditorCaption": ""

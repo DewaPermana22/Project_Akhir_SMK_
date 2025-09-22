@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("sia-api-cs")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b88e22e53783bbe6ddd8186c81efa84a364c638b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ff270301b398db4b9391d8e60ba401a22fc60fbb")]
 [assembly: System.Reflection.AssemblyProductAttribute("sia-api-cs")]
 [assembly: System.Reflection.AssemblyTitleAttribute("sia-api-cs")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

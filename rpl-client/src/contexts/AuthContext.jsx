@@ -1,4 +1,5 @@
 import axiosInstance from "@/api/AxiosInstance";
+import axios from "axios";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext();
@@ -49,14 +50,13 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (credentials) => {
     try {
-      await axiosInstance.get("/sanctum/csrf-cookie");
-      const response = await axiosInstance.post("/api/login", credentials, {
+        const response = await axios.post("http://localhost:5062/api/auth/login", credentials, {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'X-Requested-With': 'XMLHttpRequest',
-        },
+        }
       })
+      console.log(response)
       setUser(response.data.user);
       setIsAuthenticated(true);
       return response.data;

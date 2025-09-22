@@ -65,4 +65,7 @@ public partial class User
     [ForeignKey("StatusId")]
     [InverseProperty("Users")]
     public virtual StatusUser? Status { get; set; }
+
+    [InverseProperty("User")]
+    public ICollection<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
 }

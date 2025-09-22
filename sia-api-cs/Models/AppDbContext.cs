@@ -54,6 +54,7 @@ public partial class AppDbContext : DbContext
     public virtual DbSet<StatusUser> StatusUsers { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
+    public DbSet<RefreshToken> RefreshTokens { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -195,6 +196,23 @@ public partial class AppDbContext : DbContext
             entity.HasOne(d => d.Status).WithMany(p => p.Users)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("users_status_id_foreign");
+        });
+
+        modelBuilder.Entity<RefreshToken>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("refreshtoken_pkey");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.UserId).HasColumnName("userid");
+            entity.Property(e => e.Token).HasColumnName("token");
+            entity.Property(e => e.Expires).HasColumnName("expires");
+            entity.Property(e => e.Revoked).HasColumnName("revoked");
+
+            entity.HasOne(rt => rt.User)
+                  .WithMany(u => u.RefreshTokens)
+                  .HasForeignKey(rt => rt.UserId)
+                  .OnDelete(DeleteBehavior.Cascade)
+                  .HasConstraintName("fk_refreshtoken_users");
         });
 
         OnModelCreatingPartial(modelBuilder);
